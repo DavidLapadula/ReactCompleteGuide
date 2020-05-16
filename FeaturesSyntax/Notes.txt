@@ -1,0 +1,36 @@
+- Build workflow to compile features for cross browser support
+	- Babel compiles the code and can get hooked into webpack
+- Code needs to get bundled for when it gets shipped (Webpack)
+- Div with root id is element that rest of app hooks to
+- Service worker cahces script files
+- Render one root component, and nest all components within that one root component
+- Render method calls allows seeing things on screen, needs to return something that can be rendered on the DOM
+	- JSX just HTML looking code that transpiles into JS. Compiled to createElement()
+		- WHY React is imported when returning JSX despite it not being used
+		- createElement() will make a new element, and values are argument passed in. Pass JS object with classes into call
+		- JSX is syntactic sugar over infinite nested calls to this function for every element
+- Cannot use restricted words in JS, and no adjacent elements
+- Functional component: plain function that is not class based or extending Component
+	- Component is just function that returns JSX W/O render() method
+- Single curly braces gets interpreted as JS and not plain text
+- Attributes come in object used in component as argument named props
+	- class based components need this.props, and props.children is for nested elements
+- state is a property of class based components - managed from inside. Special thing is that it changes, and a chage updates DOM
+- Event listeners execute function of class or imported. Pass REFERENCE and refer to property that holds fn and not directly invoke
+	 - Can listen to essentially any event happening on the DOM
+- ES6 will auto bind so DO NOT need to use 'this' in calling cod of fn
+	- setState() comes from extending component
+- Will only update portion of state that has changed
+	- Changing state and props are the only things that change DOM by render compare
+- Hooks: for functional component and adding functionality
+	- useState(): pass in initial state. Returns 2 elemnt array, first is initial state and second is fn to update state
+		- DOES NOT merge old state, need to manually include old state data. Best practice to have multiple use state calls
+- Every component should not manage own state, as many pure/functional/presentational components as possible
+- Pass reference to fn as attribute, so can call as prop
+- use bind() to get proper reference to this, and additional arguments are passed into function as arguments
+	- Arrow functions auto-bind and can be invoked with () because getting returned, and returns result of calling fn getting executed
+- 2 way binding: listen to changes on component that triggers handler, and the handler updates the state, that is passed down as value
+- Webpack injects styles dynamically - it manages the styles
+- Using 'this' syntax should use arrow function that is a property that gets assigned a function, because it encapsulates the enclosing class
+- Passing method in as prop is passing a REFERENCE to the function to be invoked at some later time
+- 
