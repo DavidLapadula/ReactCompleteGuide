@@ -5,4 +5,9 @@
 	- Returns a component with CSS style selectors, and the adds the class to the div 
 	- Can pass prop to styled component, and then access in styled component with small arrow function in template
 - CSS Modules
-	- 
+	- Make change to webpack to allow modules and generate unique CSS class names
+	- Property in CSS class is now object on property imported from classes object of CSS object
+		- Generated class name is UNIQUE so will allow you to scope it to the component
+- Bundled code given to browser, but sources indev tolls shows actual source code
+- ComponentDidCatch() will trigger when child component throws an error
+	- ErrorBounrdary for failures that are out of your control

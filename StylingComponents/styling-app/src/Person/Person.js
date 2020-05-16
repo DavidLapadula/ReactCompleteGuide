@@ -15,6 +15,10 @@ const StyledDiv = styled.div`
 `;  
 
 const person = (props) => {
+    const rnd = Math.random();
+    if (rnd < 0.7) {
+        throw new Error("Random Error");
+    }
     return (
         <StyledDiv>
             <p>{props.children}</p>

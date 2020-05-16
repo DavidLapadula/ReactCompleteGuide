@@ -3,7 +3,8 @@ import Person from './Person/Person'
 import UserInput from "./UserInput/UserInput"; 
 import UserOutput from "./UserOutput/UserOutput"; 
 import styled from "styled-components"; 
-import './App.css';
+import classes from './App.css';
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary"; 
 
 const StyledButton = styled.button`
     background-color: ${props => props.alt ? "red": "green"};
@@ -73,13 +74,14 @@ class App extends Component {
         <div>
           {this.state.persons.map((person, index) => {
             return (
-              <Person
-                key={person.id}
-                click={() => this.deletePersonHandler(index)}
-                changed={(event) => this.nameChangedHandler(event, person.id)}
-                name={person.name}
-                age={person.age}
-              />
+              <ErrorBoundary key={person.id}>
+                <Person
+                  click={() => this.deletePersonHandler(index)}
+                  changed={(event) => this.nameChangedHandler(event, person.id)}
+                  name={person.name}
+                  age={person.age}
+                  />
+              </ErrorBoundary>
             );
           })}
         </div>
@@ -107,7 +109,7 @@ class App extends Component {
 
         <hr></hr>
         <StyledButton
-          alt={this.state.showPersons}
+          alt={this.state.showPersons.length > 1}
           onClick={this.togglePersonHandler}
         >
           Switch Name
