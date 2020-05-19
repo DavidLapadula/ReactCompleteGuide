@@ -13,5 +13,35 @@
 - 'use' lifecyle methods are for accessing lifecyle when in functonal component
 	- useEffect - react hook for all lifecyle methods in the application. Function executes for every render cycle
 		- Essentially a combination of did mount and did update
-		- Array as second argument of data that should effect change, empty array will mean no dependencies so only runs trhe first time and never again
-- 
+		- Array as second argument of data that should effect change, empty array will mean no dependencies so only runs the first time and never again
+- Run will unmount to clean up things before component gets removed
+	- Can return fn from useEffect to run after the main render cycle. No second argument to useEffect and this returned fn will alwyas run after first render
+- shouldComponentupdate: compare next props/state to current to tell when to re-render
+- Should always make new object because change listeners are using reference, so need new reference
+- React.memo to memoize and only re-render fn components if input changes. If parent changes information then react will give back snapshot
+	- Good for fn components that do not need to update with every change in parent component
+- Memo or shouldComponentUpdate should only be used when parent can change with no effect at all
+	- NOT use when parent updating means fn component updating as well
+- PureComponent: implemeting shouldComponentUpdate with full props check to check for re-render
+- React changing the DOM: Old Virtual DOM and Re-rendered Virtual DOM
+	- Faster then actual render, and checks if anything changes, and then only changes parts that changed in real DOM
+-  Can return array of adjacent elements, as long as each element has a key. Each is just the return or a React.CreateElement
+	- Array is still just one object, the keys are just to allow react to efficiently update it
+- Can make auxiliary component that just outputs the props children
+	- Works because can only return one object from React.CreateElement, typical function requirement to only return one expression	
+	- React.Fragment is built in component to just render children like an aux
+- HOC
+	- They add something extra to the component
+	- Could just be wrapping component or it is a function that returns a functional component. Child component passed into main function and returned by functional component
+	- If changing markup/jsx then using general wrapping, using wrap on export to change logic
+	- Need to pass props dynamically, functional nested LOC just return the wrapped component, so props passed to it are the same that is passed to the component
+		- Use spread operator to spread the props to the LOC
+		- Importing wrapped class is just result of whatever the functional component returns
+- setState() schedules a value change and re-render, not guaranteed to execute immediately. Not guaranteed to be latest value
+	- setState() can take a fn that returns object for new state, and can refer to prev state in there, to guarantee correct
+- PropTypes
+	- Add property to component object to set a type with the prop, can also control what fn receives and should return
+- Refs 
+	- References to select an element, anon function where first argument is DOM element that ref is on. Can then be stored globally
+	- Use createRef() to get a reference object, and then make the ref on the DOM equal to that reference instead of a function
+	
