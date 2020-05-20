@@ -44,4 +44,12 @@
 - Refs 
 	- References to select an element, anon function where first argument is DOM element that ref is on. Can then be stored globally
 	- Use createRef() to get a reference object, and then make the ref on the DOM equal to that reference instead of a function
-	
+	- useRef() hook for functional components, can caall fn's on ref in useEffect() because runs AFTER jsk has been renderned
+- Context
+	- State in multiple components without passing it around
+	- Globally available javascript value, obj, array, etc.
+	- HOC that wraps the components that need access to the component, takes 'value' that matches initial value actin as a prop
+		- Anything inside wrapper can then acces the values passed into the 'value of the wrapping component
+	- Context provider for where value being set, consumer for where value being used. Consumer returns function with argument for properties of context
+		- Class Based: Static contextType set to context you want to consume, gives you access to 'this.context' value you can use wherever you want
+		- Functional components:  Use useContext() hook and pass in context provider to give access to values

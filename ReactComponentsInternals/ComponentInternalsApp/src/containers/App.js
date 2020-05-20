@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classes from "./App.css";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
+import AuthContext from "../context/auth-context"; 
 
 class App extends Component {
   constructor(props) {
@@ -33,7 +34,8 @@ class App extends Component {
       { id: 'asdf11', name: 'Stephanie', age: 26 }
     ],
     showPersons: false,
-    changeCounter: 0
+    changeCounter: 0,
+    authenticated: false
   };
 
   nameChangedHandler = (event, id) => {
@@ -52,9 +54,9 @@ class App extends Component {
 
     this.setState((prevState, props) => {
       return {
-        persons: persons, 
+        persons: persons,
         changeCounter: prevState.changeCounter + 1
-      }; 
+      };
     });
   };
 
@@ -69,6 +71,10 @@ class App extends Component {
     this.setState({ showPersons: !doesShow });
   };
 
+  loginHandler = () => {
+    this.setState({ authenticated: true }); 
+  };
+
   render() {
     let persons = [];
 
@@ -78,19 +84,22 @@ class App extends Component {
           persons={this.state.persons}
           clicked={this.deletePersonHandler}
           changed={this.nameChangedHandler}
+          isAuthenticated={this.state.authenticated}
         />
       );
     };
 
     return (
       <div className={classes.App}>
-        <Cockpit
-          title={this.props.appTitle}
-          personsLength={this.state.persons.length}
-          showPersons={this.state.showPersons}
-          clicked={this.togglePersonsHandler}
-        />
-        {persons}
+        <AuthContext.Provider value={{authenticated: this.state.authenticated, login: this.loginHandler}}>
+          <Cockpit
+            title={this.props.appTitle}
+            personsLength={this.state.persons.length}
+            showPersons={this.state.showPersons}
+            clicked={this.togglePersonsHandler}
+          />
+          {persons}
+        </AuthContext.Provider>
       </div>
     );
   }
