@@ -1,2 +1,6 @@
 - Component Tree > Application State > Components vs Containers
-- Split componnets based on functionality
+- Split components based on functionality
+- propTypes allow for additional validation beyond type
+- Making state object is just shorthand for running constructor and using this.state
+- Can render nested arrays of jsx as if flattened, but then can flatten with the same result
+-
