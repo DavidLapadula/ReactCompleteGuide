@@ -3,4 +3,6 @@
 - propTypes allow for additional validation beyond type
 - Making state object is just shorthand for running constructor and using this.state
 - Can render nested arrays of jsx as if flattened, but then can flatten with the same result
--
+- Can pass function reference with argument using arrow function than can fired on click in component when it has been passed down
+- setState() not always guaranteed to update values if being used in other method, safer to pass object to methods using the state
+- 
