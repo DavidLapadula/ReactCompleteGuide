@@ -1,0 +1,17 @@
+- Should only have side effects in componentDidMount(), like when to make http call
+- Do not update state is componentDidMount() because re-render will occur
+- Single threaded with promises to ensure no blocking
+- Arrow function inside jsx brackets will still only call on reference bbut passes element as first argument and allows you to pass parameters in
+- Call setState() in componentDidUpdate() will cause infinite loop, because setState() will cause re-render and will update again
+	- Called when state or props change, so need to make sure changing props require a re-render
+- Catch will catch any errors that the request may have had, can update state to show that error with new render
+- Interceptor, set globally for every request AND response can be changed using axios.interceptors.request/response
+	- First argument will be function that returns the success request/response
+	- Can edit the request config (change headers etc...) but need to return the request/response so calling fn receieves
+	- And then second argument is the error, which is an object, and just return the reject to ensure it propagates
+- Can set global configuration with axios, just properties of the root axios instance
+	- baseURL so subsequent paths are just appended
+	- headers can also be set for every request or some type of requests 
+- Axios instances, make copy with create() and pass object to set config options
+	- Will override any identical properties in global interceptors
+	- Can change properties like regular object on instance
