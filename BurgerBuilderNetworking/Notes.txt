@@ -6,3 +6,4 @@
 	- componentWillUnmount() - when component is not being used
 		- Run function of useEffect() because that runs for the cleanup of functional components
 		- Interceptors can be stored in member variable and then eject when componnet unmount to prevent memory leaks
+- Should not create dark components that run code or are rendered withouth being there, will leak memory and hit performance
