@@ -15,3 +15,4 @@
 - Axios instances, make copy with create() and pass object to set config options
 	- Will override any identical properties in global interceptors
 	- Can change properties like regular object on instance
+	- Just import the export from the file where the instance was created

@@ -1,0 +1,8 @@
+- Ensure shouldComponentUpdate() checks the correct values in nextProps or nextState to trigger re-render
+- Can use anonymous component base class by just returning the class from a function if it is never referenced
+- Use HOC for global error handling component, use interceptor on axios request to determine if there is an error and show when exists
+- componentDidMount() called AFTER componentDidMount() runs in child components, so it is POST render
+- Interceptors can cause memory leaks if they are running when they are not visible
+	- componentWillUnmount() - when component is not being used
+		- Run function of useEffect() because that runs for the cleanup of functional components
+		- Interceptors can be stored in member variable and then eject when componnet unmount to prevent memory leaks
