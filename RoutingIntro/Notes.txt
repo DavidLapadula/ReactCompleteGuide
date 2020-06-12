@@ -1,0 +1,5 @@
+- SPA means only 1 HTML file, JS renders differnt pages for different paths
+- Package parses the path, and will read configuration from the app, and then renders the page
+- react-router-dom 
+	- Wrap part of app that can render router with HOC from package
+	- 
