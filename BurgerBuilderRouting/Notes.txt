@@ -1,0 +1,5 @@
+- Route component with path property to render certain active route
+    - Component prop is what happens when that route is hit
+        - Pass reference to function or class that you want to render
+    - Also a render function that returns jsx for simpler version
+- Exact determines of the complete path is a match
