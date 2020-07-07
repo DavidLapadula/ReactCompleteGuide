@@ -3,3 +3,6 @@
         - Pass reference to function or class that you want to render
     - Also a render function that returns jsx for simpler version
 - Exact determines of the complete path is a match
+- Link ('a' tag) will reload the page and therefore lose state, do not reload but just re-render parts of the DOM (stay inside of application)
+	- Link component instead of anchor tag  so it will prevent loading the page (use 'to' prop), can add path and query parameters
+- React router passes information in the props, as well as methods like goBack, goForward and pushing new pages
