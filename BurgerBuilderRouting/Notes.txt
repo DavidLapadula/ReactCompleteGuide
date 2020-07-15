@@ -6,3 +6,10 @@
 - Link ('a' tag) will reload the page and therefore lose state, do not reload but just re-render parts of the DOM (stay inside of application)
 	- Link component instead of anchor tag  so it will prevent loading the page (use 'to' prop), can add path and query parameters
 - React router passes information in the props, as well as methods like goBack, goForward and pushing new pages
+- withRouter HOC
+	- Props not passed through History if just a component
+	- withRouter will make it 'route aware' and get information from the props of the nearest loaded route, and getting routing related props
+- 'to' property is default absolute path with domain,  can use this.props.match.url to builld a dynamic relative path
+- Only with NavLink object
+	- Can use activeClassName to determine which class gets added when the route is mathched to the active link
+	- Can use activeStyle to inline style when active
