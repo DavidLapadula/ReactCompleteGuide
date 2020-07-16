@@ -13,3 +13,9 @@
 - Only with NavLink object
 	- Can use activeClassName to determine which class gets added when the route is mathched to the active link
 	- Can use activeStyle to inline style when active
+- :id is flexible route parameter, that can accept rouute parameters
+- Parameter from the params are then in the props sent in to the component
+- URLSearchParams comes with vanllaJS and will give you iterable entries for all the argumnts passed into route
+- Switch compoenent will render only the FIRST route that matches
+- 'History' of Link prop will allow you to push onto a different place in the navigation stack
+- 
