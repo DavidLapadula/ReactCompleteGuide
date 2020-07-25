@@ -20,3 +20,39 @@
 - 'History' of Link prop will allow you to push onto a different place in the navigation stack
 - Can use Route whenever you want as long as it is wrapped in BrowserRouter
 - Make path dynamic by setting path to an object and using props from match value (contains url)
+- Re-loading current component, will not re-render. No componentDidMount() firing
+	- Router will not re-mount component with new parameter, need componentDidUpdate() to catch the new params and show new content
+- Add + infront of string will turn it into a number
+- Redirect component with 'from' and 'to' props to navigate to specific routes on another page
+	- Conditional redirection: same conditionl logic in jsx. Redirect component outside Switch can only have 'from' value
+- History prop comes in every component within BrowserRouter
+	- push() to push onto a new stack, replace() to change the page on the stack
+	- Redirect will replace the page on the stack, so going back wil not take you to the right place
+-  Navigation Guard: certain routes that are/are not authenticated
+	- Conditional Route based on the state of the user, OR check if user is authenticated inside the component
+- 404 case
+	- Could be handled by redirect
+	- Could make Route component with no 'path' and this will be catch all for all unknown routes
+- Lazy Loading routes
+	- When you import something, webpack (bundler) will include it in global bundle - that is what it is for
+		- Lazy loading is opposite - do not want to load right away
+	- Does not make sense to load routes that the user may never visit
+	- Code splitting to only download what you need
+	- Make functional component that returns Class with object of state that is a component
+	- Render the method loaded into state whenever the function is called
+	- Special import syntax (import()) and it is only imported when whatever is inside the parentheses is executed
+		- Pass this into special HOC component which renders default from component passed in (webpack allows) then will only load into gloabl bundle when it is called
+		- Webpack will detect dyanmic syntax to create extra bundle that is loade when needed
+- React Suspense (React Lazy)
+	- Allows you to load component  asynchronously. Code is only loaded when it is required
+	- Import with Rect.lazy(() => import('path')); Will only load into bundle when it needs to be loaded
+	- Then use Suspense component inside the render function of a Route component to wrap import using lazy
+		- Can also specify fallback to show loading screen
+		- Suspense wrapper can also be used outside route to render conditionally
+	- Function form of setState() gives you access to previous state
+- Routing and Server deployment
+	- Server handles routes first, but React knows the routes. So visiting some URL might not work until react is loaded
+	- Server needs to be configured to always directed to client (even index.html) for unknown requests. Allowing React to take over
+	- When hosting, always return index.html in every case
+	- Need to set base path is hosting on anything either than '/'. Just use basename on route that is being served from on BrowserRouter top level component to add to route domain
+	- 
