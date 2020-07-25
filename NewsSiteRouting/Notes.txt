@@ -18,4 +18,5 @@
 - URLSearchParams comes with vanllaJS and will give you iterable entries for all the argumnts passed into route
 - Switch compoenent will render only the FIRST route that matches
 - 'History' of Link prop will allow you to push onto a different place in the navigation stack
-- 
+- Can use Route whenever you want as long as it is wrapped in BrowserRouter
+- Make path dynamic by setting path to an object and using props from match value (contains url)
