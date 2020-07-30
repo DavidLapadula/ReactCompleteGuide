@@ -1,0 +1,6 @@
+- match object on props only available when loaded with a Route, not those pages nested inside of those pages
+	- HOC withRouter() can give match property on props matching the nearest matches route in the path
+- props.history.goBack() will go to the previous page in the router stack
+- encodeURIComponent can be used for query string that is passed to 'search' property of when using history.push with an object (pathname is location)
+	- Use URLSearchParams to decode values passed in query string. Gives access to entries() object with tuple like [param, value]
+- 
