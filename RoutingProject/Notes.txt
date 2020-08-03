@@ -1,0 +1,11 @@
+- match object on props only available when loaded with a Route, not those pages nested inside of those pages
+	- HOC withRouter() can give match property on props matching the nearest matches route in the path
+- props.history.goBack() will go to the previous page in the router stack
+- encodeURIComponent can be used for query string that is passed to 'search' property of when using history.push with an object (pathname is location)
+	- Use URLSearchParams to decode values passed in query string. Gives access to entries() object with tuple like [param, value]
+- Can use render={(props) => (<Comp />)} to pass props into a Route when using regular component to be passed in
+	- props will be equivalent to whatever props were recieved in the component and can be distributed into the rendered component so that it can recieve them as well
+- NavLink will automatically have active class when located at that route
+	- BUT css modules gives it unique class name with hash, so active class attached using NavLink will not use the same module class you have
+	- Can use activeClassName prop to tell it which class name to use 
+- + in front of string wil convert to number 
