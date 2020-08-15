@@ -1,3 +1,6 @@
 - Can have dynamic input element by setting the return jsx to a specific type of component like input or textarea
 	- Props can then be spread into the element so that any JSX specific attributes will automatically be  distributed to the component on render
 - Can use config options for creating custom elements, which are then spread in as props
+- Need to update value on input, part of two way binding
+	- Use anon function to pass argument; so can pass identifier to the input to change the value
+	- Spread operator will not make deep clone of nested objects, need to make another clone of object you want to modify
