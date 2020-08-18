@@ -4,3 +4,8 @@
 - Need to update value on input, part of two way binding
 	- Use anon function to pass argument; so can pass identifier to the input to change the value
 	- Spread operator will not make deep clone of nested objects, need to make another clone of object you want to modify
+- Classes can take an array, can push new classes onto array like for error issues
+- Can also render error messages and text conditionally if the messages were passed in
+	- Can pass in 'touched' as prop to see if the user has been on the form
+	- Can pass in shouldValidate as prop to determine if that element should be validated at all
+		- Any messages or error styling can be handled conditionally based on these props passed in
