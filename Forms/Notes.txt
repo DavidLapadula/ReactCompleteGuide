@@ -9,3 +9,5 @@
 	- Can pass in 'touched' as prop to see if the user has been on the form
 	- Can pass in shouldValidate as prop to determine if that element should be validated at all
 		- Any messages or error styling can be handled conditionally based on these props passed in
+- If using custom controls for validation, need to use even if empty or should not utilize validation so that the error handling can be the same for every custom input element
+- 
