@@ -1,0 +1,2 @@
+- Runs in the browser, do not need to wait for response from the server for a new page
+- Split up into components
