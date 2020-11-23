@@ -1,2 +1,4 @@
 - Runs in the browser, do not need to wait for response from the server for a new page
 - Split up into components
+- React makes handling state easier, makes focuusing on BL easier
+- SPA vs MPA: only one file from the server
