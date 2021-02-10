@@ -1,7 +1,9 @@
 - Runs in the browser, do not need to wait for response from the server for a new page
 - Split up into components, build everything as small pieces of contained code
 	- Custom HTML elements that can be exported and reused
-- SPA vs MPA: only one file from the server
+- SPA vs MPA: only one html file from the server when the user visits the page
+	- SPA: entire page under react control and widgets know of each others existence
+	- SPA only has 1 render call for the root component vs multiple calls per widget in MPA
 - Returning function is just multiple calls to ReactDOM.render()
 - React makes handling state easier, makes focusing on BL easier
 	- UI state management is easier. Old way is too reliant on targetting the DOM
