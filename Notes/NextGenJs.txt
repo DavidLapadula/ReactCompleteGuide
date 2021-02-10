@@ -1,0 +1,3 @@
+- const for variables that do not change and cannot be reassigned, let for variable values (function scoped)
+- 'this' value keeps context inside arrow function, dows not change at runtime
+- Can remove parentheses with 1 arg, or remove function body if all it does is return
