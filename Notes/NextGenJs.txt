@@ -1,3 +1,11 @@
 - const for variables that do not change and cannot be reassigned, let for variable values (function scoped)
 - 'this' value keeps context inside arrow function, dows not change at runtime
 - Can remove parentheses with 1 arg, or remove function body if all it does is return
+- Exports and Imports allows for modular code so js files know their dependencies
+- Default keyword: base export and can import without braces in another file
+- Named exports use braces, ie nothing marked as default
+- Class is blueprint for object, properties and methods.
+	- Constructor runs whenever class is instantiated
+	- 'this' keyowrd sets  properties
+	- Allow for inheritance (prototypes)
+	- Need to call super() to initialize parent constructor
