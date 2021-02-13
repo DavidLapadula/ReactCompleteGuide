@@ -1,4 +1,5 @@
-- const for variables that do not change and cannot be reassigned, let for variable values (function scoped)
+- const for variables that do not change and cannot be reassigned
+-  let for variable values (block scoped) does not change global object when declared at top
 - 'this' value keeps context inside arrow function, dows not change at runtime
 - Can remove parentheses with 1 arg, or remove function body if all it does is return
 - Exports and Imports allows for modular code so js files know their dependencies
@@ -9,3 +10,18 @@
 	- 'this' keyowrd sets  properties
 	- Allow for inheritance (prototypes)
 	- Need to call super() to initialize parent constructor
+- ES7 can directly set  property and methods without constructor
+	- Arrow function as property do not need to worry about 'this' binding 
+- Spread and Rest operator
+	- Spread for array or object properties
+	- Rest to merge function arguments into an array. Can then apply array methods to them
+- Destructuring
+	- Extract array element and object property into variables
+	- Allows for storing single properties
+	- If array order defines what is set, for object is key value
+- Reference and primitive types
+	- Primitve types make a real copy when copied. Reassigned or stored it copies value
+	- Objects and arrays just stores a pointer when copied 
+	- Spread operator copies in immutable way (value, not pointer)
+- Array functions
+	- 
