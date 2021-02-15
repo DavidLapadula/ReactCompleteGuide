@@ -1,0 +1,15 @@
+- Next gen js makes code leaner, faster, and less error prone
+- Need to write newest JS version but works on all browsers, so build flow that transpiles it work
+- CSS prefix allows to work on most browsers as possible
+- Bundler to make sure all modules gets joined to work on all browsers and optimize it (decrese requests to folders)
+- Babel compiles down to workaround for older browsers
+- Local server to emulate real server properly instead of file protocol with html
+- Public folder is what gets served, script files get injected into this file, and where app gets mounted
+- ReactDOM.render used to render <App /> and grabs the document by the root to mount the app
+- Service worker pre-cache's script files
+- Components
+	- React works by rendering one root component, and then nest the components you need beneath it
+	- Classes inherit from Component class of react
+	- render() called by react to show on the screen
+	- Component MUST RETURN html to be rendered to the DOM
+	- JSX actually returned, not HTML, build workflow transpiles JSX to HTML, syntax is just sugar so easier to work with
