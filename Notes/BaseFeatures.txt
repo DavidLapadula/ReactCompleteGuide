@@ -13,3 +13,8 @@
 	- render() called by react to show on the screen
 	- Component MUST RETURN html to be rendered to the DOM
 	- JSX actually returned, not HTML, build workflow transpiles JSX to HTML, syntax is just sugar so easier to work with
+- JSX just compiles to multiple calls to React.createElement (why you need to import react in a component)
+	- Is not HTML, is javascript
+	- Uses className as configuration for CSS, cannot use 'class' like HTML because it is just javascript
+	- NOT using real HTML tags
+	- Need to return 1 root element, best practice to wrap everything in 1 root element per component
