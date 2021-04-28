@@ -18,3 +18,10 @@
 	- Uses className as configuration for CSS, cannot use 'class' like HTML because it is just javascript
 	- NOT using real HTML tags
 	- Need to return 1 root element, best practice to wrap everything in 1 root element per component
+- Extend component class in order to create a component
+	- BUT component is just a function that return JSX
+- Upper case letters for own components to not interfere with react
+- Single braces for dynamic content inserted into jsx 
+- 1 argument by default into component, referred to as props
+	- props[propertyName] gives you value for content set from outside
+	- props.children is any any html passed into the tags of your jsx
