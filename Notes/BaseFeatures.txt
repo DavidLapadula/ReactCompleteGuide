@@ -25,3 +25,16 @@
 - 1 argument by default into component, referred to as props
 	- props[propertyName] gives you value for content set from outside
 	- props.children is any any html passed into the tags of your jsx
+- State
+	- Class has properties like variables of a classs
+	- Need to extend component for state, managed from inside a component
+	- Fn components should be favoured for maintainability
+	- Values are a js object
+	- This refers to own class
+	- Change in state = re-render DOM
+	- Method (function on class) typically called on class. Custom is to user 'handler'
+	- Passing reference to onClick, no parenthese because then would be invoked on render
+	- ES6 binds function to class and so gives access to 'this'
+	- Cannot mutate state directly, component object has setState method
+		- Only changes what is being set, the rest is untouched
+	- ONLY change to state and new proper cause a re-render. Analyzes code that was rendered, and what was rendered, updates where it needs to
