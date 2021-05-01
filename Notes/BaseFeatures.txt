@@ -48,3 +48,22 @@
 	- In functional component can have nested functions, like for handlers
 	- useState hook REPLACES new state with only what is passed in. Any other state NEEDS TO BE PASSED IN
 		- Convention is to have multiple calls to useState so do not need to pass it in
+- Stateless vs Stateful
+	- Does not manage vs does manage state
+	- Stateless is functional/dumb/presentational/pure component
+	- Stateful are smart/container by convention
+	- As many dumb as possible so its easy to manage where the data is and make changes
+- Passing methods between components
+	- Pass reference as a prop
+	- Call native handler as prop in child component. Handler could modify data in PARENT component
+	- 'this' issue solved by binding the handler, first arg passed to bind is 'this', and second is whatever parameters the function takes
+	- Can also bind with arrow function, implicit return with whatever follows the arrow
+		-  When passed as handler it IS invoked but anonymous function that ONLY EXECUTED ON CLICK. And returns result of fn execution
+		- Binding with arrow function not as efficient because react can re-render too often with this pattern
+- Two way binding
+	- Input from the view changes the state, can use onChange handler
+	- Input has target property, which has a value property (which is what is being typed in)
+		- onChange on input passes event BY DEFAULT in JS, so can bind that handler to method from parent component thats passed as prop
+	- Two way binding means change in view propagates, but current state is also in the view
+	- Error to bind to property without reacting to changes - it makes the field locked down
+	
