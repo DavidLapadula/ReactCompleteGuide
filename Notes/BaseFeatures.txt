@@ -38,3 +38,13 @@
 	- Cannot mutate state directly, component object has setState method
 		- Only changes what is being set, the rest is untouched
 	- ONLY change to state and new proper cause a re-render. Analyzes code that was rendered, and what was rendered, updates where it needs to
+- useState
+	- Hooks to manage state in functional components
+	- Functions exposed by react, Hooks start with 'use'
+	- Pass useState an object by setting state
+		- Given 2 args: first is current state, second is function that allows to update (force re-render)
+			- useState can be passed any type for the stats
+			- Can destructure arguments out of what is returned from useState
+	- In functional component can have nested functions, like for handlers
+	- useState hook REPLACES new state with only what is passed in. Any other state NEEDS TO BE PASSED IN
+		- Convention is to have multiple calls to useState so do not need to pass it in
