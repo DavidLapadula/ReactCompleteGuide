@@ -7,6 +7,7 @@
 - Public folder is what gets served, script files get injected into this file, and where app gets mounted
 - ReactDOM.render used to render <App /> and grabs the document by the root to mount the app
 - Service worker pre-cache's script files
+- Names are camel cased to conform to JS syntax, thats why they are different
 - Components
 	- React works by rendering one root component, and then nest the components you need beneath it
 	- Classes inherit from Component class of react
@@ -66,4 +67,10 @@
 		- onChange on input passes event BY DEFAULT in JS, so can bind that handler to method from parent component thats passed as prop
 	- Two way binding means change in view propagates, but current state is also in the view
 	- Error to bind to property without reacting to changes - it makes the field locked down
+- Add Styling
+	- CSS not scoped to component, is global when style added at root level
+	- Always need to add files, webpack allows bringing CSS into JS files, just makes file aware of it 
+	- Webpack injects styles dynamically, and auto-prefixes to work in other browsers
+	- Inline styles using JS
+	- Pass style object just like a prop
 	

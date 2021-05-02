@@ -10,6 +10,13 @@ const app = props => {
   //   ]
   // }
 
+  const style = {
+    backgroundColor: "white",
+    font: "inherit",
+    border: "1px solid blue",
+    padding: "8px", 
+    cursor: "pointer"
+  }
 
   const [personsState, setPersonsState ] = useState({
       persons: [
@@ -45,7 +52,11 @@ const app = props => {
         <h1>
           This is react.
         </h1>
-        <button onClick={switchNameHandler.bind(this, "John")}>Switch Name</button>
+        <button 
+          style={style}
+          onClick={switchNameHandler.bind(this, "John")}>
+            Switch Name
+          </button>
         <Person 
           name={personsState.persons[0].name} 
           age={personsState.persons[0].age}
