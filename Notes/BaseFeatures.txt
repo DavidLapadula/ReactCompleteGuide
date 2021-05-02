@@ -1,0 +1,76 @@
+- Next gen js makes code leaner, faster, and less error prone
+- Need to write newest JS version but works on all browsers, so build flow that transpiles it work
+- CSS prefix allows to work on most browsers as possible
+- Bundler to make sure all modules gets joined to work on all browsers and optimize it (decrese requests to folders)
+- Babel compiles down to workaround for older browsers
+- Local server to emulate real server properly instead of file protocol with html
+- Public folder is what gets served, script files get injected into this file, and where app gets mounted
+- ReactDOM.render used to render <App /> and grabs the document by the root to mount the app
+- Service worker pre-cache's script files
+- Names are camel cased to conform to JS syntax, thats why they are different
+- Components
+	- React works by rendering one root component, and then nest the components you need beneath it
+	- Classes inherit from Component class of react
+	- render() called by react to show on the screen
+	- Component MUST RETURN html to be rendered to the DOM
+	- JSX actually returned, not HTML, build workflow transpiles JSX to HTML, syntax is just sugar so easier to work with
+- JSX just compiles to multiple calls to React.createElement (why you need to import react in a component)
+	- Is not HTML, is javascript
+	- Uses className as configuration for CSS, cannot use 'class' like HTML because it is just javascript
+	- NOT using real HTML tags
+	- Need to return 1 root element, best practice to wrap everything in 1 root element per component
+- Extend component class in order to create a component
+	- BUT component is just a function that return JSX
+- Upper case letters for own components to not interfere with react
+- Single braces for dynamic content inserted into jsx 
+- 1 argument by default into component, referred to as props
+	- props[propertyName] gives you value for content set from outside
+	- props.children is any any html passed into the tags of your jsx
+- State
+	- Class has properties like variables of a classs
+	- Need to extend component for state, managed from inside a component
+	- Fn components should be favoured for maintainability
+	- Values are a js object
+	- This refers to own class
+	- Change in state = re-render DOM
+	- Method (function on class) typically called on class. Custom is to user 'handler'
+	- Passing reference to onClick, no parenthese because then would be invoked on render
+	- ES6 binds function to class and so gives access to 'this'
+	- Cannot mutate state directly, component object has setState method
+		- Only changes what is being set, the rest is untouched
+	- ONLY change to state and new proper cause a re-render. Analyzes code that was rendered, and what was rendered, updates where it needs to
+- useState
+	- Hooks to manage state in functional components
+	- Functions exposed by react, Hooks start with 'use'
+	- Pass useState an object by setting state
+		- Given 2 args: first is current state, second is function that allows to update (force re-render)
+			- useState can be passed any type for the stats
+			- Can destructure arguments out of what is returned from useState
+	- In functional component can have nested functions, like for handlers
+	- useState hook REPLACES new state with only what is passed in. Any other state NEEDS TO BE PASSED IN
+		- Convention is to have multiple calls to useState so do not need to pass it in
+- Stateless vs Stateful
+	- Does not manage vs does manage state
+	- Stateless is functional/dumb/presentational/pure component
+	- Stateful are smart/container by convention
+	- As many dumb as possible so its easy to manage where the data is and make changes
+- Passing methods between components
+	- Pass reference as a prop
+	- Call native handler as prop in child component. Handler could modify data in PARENT component
+	- 'this' issue solved by binding the handler, first arg passed to bind is 'this', and second is whatever parameters the function takes
+	- Can also bind with arrow function, implicit return with whatever follows the arrow
+		-  When passed as handler it IS invoked but anonymous function that ONLY EXECUTED ON CLICK. And returns result of fn execution
+		- Binding with arrow function not as efficient because react can re-render too often with this pattern
+- Two way binding
+	- Input from the view changes the state, can use onChange handler
+	- Input has target property, which has a value property (which is what is being typed in)
+		- onChange on input passes event BY DEFAULT in JS, so can bind that handler to method from parent component thats passed as prop
+	- Two way binding means change in view propagates, but current state is also in the view
+	- Error to bind to property without reacting to changes - it makes the field locked down
+- Add Styling
+	- CSS not scoped to component, is global when style added at root level
+	- Always need to add files, webpack allows bringing CSS into JS files, just makes file aware of it 
+	- Webpack injects styles dynamically, and auto-prefixes to work in other browsers
+	- Inline styles using JS
+	- Pass style object just like a prop
+	
