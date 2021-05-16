@@ -1,0 +1,13 @@
+- Simplify building UI
+- Core feature is Component
+    - All UI are made of components. Made of different building blocks
+    - All UI can be split in this way
+    - React just tells you how to fuse them together
+- Reusability (DRY) AND Separation of Concerns (Feature only does 1 thing)
+- Builds on idea of splitting code for above two concerns
+- React is Decalarative
+    - HTML/CSS/JS constitute a component
+    - Build reusable and reactive components
+    - 'Declarative': do not tell when to insert element in UI
+        - You define end state and then React handles DOM instructions
+        - You DO NOT write DOM instructions on your own
