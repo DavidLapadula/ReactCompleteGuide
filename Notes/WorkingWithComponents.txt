@@ -21,5 +21,5 @@
     - Syntax that usually would not work but then transformed to work in the browser
 - How react works
     - Building own HTML elements
-    - Create 'reactive' components, declarative because you define the end state and react handles the rest
+    - Create 'reactive' components, declarative because you define the end state and react generates instructions to render
         - Regular JS in the browser is imperative because you give instructions for what browser to do 
