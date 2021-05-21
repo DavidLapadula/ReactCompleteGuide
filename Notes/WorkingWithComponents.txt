@@ -11,3 +11,15 @@
     - 'Declarative': do not tell when to insert element in UI
         - You define end state and then React handles DOM instructions
         - You DO NOT write DOM instructions on your own
+- Analyzing a project
+    - index.js is the first page that is executed
+    - js transformed to HTML
+    - index.html is what is loaded by the browser (SPA)
+    - Components need to be imported
+    - JSX valid because of transformations happening behind the scenes
+- JSX
+    - Syntax that usually would not work but then transformed to work in the browser
+- How react works
+    - Building own HTML elements
+    - Create 'reactive' components, declarative because you define the end state and react handles the rest
+        - Regular JS in the browser is imperative because you give instructions for what browser to do 
