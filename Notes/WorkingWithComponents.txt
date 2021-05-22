@@ -23,3 +23,7 @@
     - Building own HTML elements
     - Create 'reactive' components, declarative because you define the end state and react generates instructions to render
         - Regular JS in the browser is imperative because you give instructions for what browser to do 
+- Component tree with root at the top and then the rest have differnet parts but only root is rendered
+- Component is just a JS function that returns JSX
+    - Lower case elements are built in and upper case are those custom to the project
+- Only 1 return element per JSX code snippet
