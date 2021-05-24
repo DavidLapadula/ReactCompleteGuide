@@ -27,3 +27,19 @@
 - Component is just a JS function that returns JSX
     - Lower case elements are built in and upper case are those custom to the project
 - Only 1 return element per JSX code snippet
+- Explicity tell files what to look for (css) (className instead)
+- Separate Concerns AND reduce reusability. 
+- Single curly braces allow executing js and inject into jsx
+- Props
+    - Pass data from parent to child with custom attributes
+    - 1 parameter into function guaranteed by react, holds all values held by attributes
+    - Best practice to keep logic OUT odf return JSX and in controller instead
+    - Access to any prop, inluding className
+- Composition
+    - Build UI from smaller blocks
+    - Can create component that just acts a shell for other components
+    - props.children: reserved name with value is content between tags of component
+    - Extract wrapper components to reduce duplication - i.e "composed"
+- Custom components are just created from regular HTML, custom components are just for your code
+
+
