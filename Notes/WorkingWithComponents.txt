@@ -1,0 +1,53 @@
+- Simplify building UI
+- Core feature is Component
+    - All UI are made of components. Made of different building blocks
+    - All UI can be split in this way
+    - React just tells you how to fuse them together
+- Reusability (DRY) AND Separation of Concerns (Feature only does 1 thing)
+- Builds on idea of splitting code for above two concerns
+- React is Decalarative
+    - HTML/CSS/JS constitute a component
+    - Build reusable and reactive components
+    - 'Declarative': do not tell when to insert element in UI
+        - You define end state and then React handles DOM instructions
+        - You DO NOT write DOM instructions on your own
+- Analyzing a project
+    - index.js is the first page that is executed
+    - js transformed to HTML
+    - index.html is what is loaded by the browser (SPA)
+    - Components need to be imported
+    - JSX valid because of transformations happening behind the scenes
+- JSX
+    - Syntax that usually would not work but then transformed to work in the browser
+- How react works
+    - Building own HTML elements
+    - Create 'reactive' components, declarative because you define the end state and react generates instructions to render
+        - Regular JS in the browser is imperative because you give instructions for what browser to do 
+- Component tree with root at the top and then the rest have differnet parts but only root is rendered
+- Component is just a JS function that returns JSX
+    - Lower case elements are built in and upper case are those custom to the project
+- Only 1 return element per JSX code snippet
+- Explicity tell files what to look for (css) (className instead)
+- Separate Concerns AND reduce reusability. 
+- Single curly braces allow executing js and inject into jsx
+- Props
+    - Pass data from parent to child with custom attributes
+    - 1 parameter into function guaranteed by react, holds all values held by attributes
+    - Best practice to keep logic OUT odf return JSX and in controller instead
+    - Access to any prop, inluding className
+- Composition
+    - Build UI from smaller blocks
+    - Can create component that just acts a shell for other components
+    - props.children: reserved name with value is content between tags of component
+    - Extract wrapper components to reduce duplication - i.e "composed"
+- Custom components are just created from regular HTML, custom components are just for your code
+- Closer look at JSX
+    - USED to have to import react anywhere JSX is used
+        - Transformation can now happen without the import
+    - JSX just calls React.createElement(<element type>, <properties>, additional elements...])
+    - Just many nested calls to React.createElement
+    - This is why need root element, to wrap the rest, ultimately function return so needs to be one wrapper
+- Sub folders of components to group together similar components. Keeps components organized
+- Can use const to store arrow function
+    - const example = (<args>) => {};
+
