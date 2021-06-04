@@ -1,0 +1,9 @@
+- React to button clicks have access to native DOM events. Value needs to be something executed when event occurs
+- Only object reference to handler to prevent function being executed when line of code evaluated
+- How react parses code
+    - Component is just a function that returns jsx
+    - Using components is like a function call - when react evaluates the component
+    - Calls component as 'function', and then any fn's inside them until there are none left
+        - Translates to DOM instructions, which starts with root component at initial rendering
+        - After initial rendering, react DOES NOT repeat that, so need state
+            - State allows component to be RE-EVALUATED
