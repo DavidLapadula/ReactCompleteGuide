@@ -7,3 +7,10 @@
         - Translates to DOM instructions, which starts with root component at initial rendering
         - After initial rendering, react DOES NOT repeat that, so need state
             - State allows component to be RE-EVALUATED
+- Component fn doesnt re-execute when variable changes
+- useState will allow youu to define state variables - must be called at top level of component
+    - Returns value and function to re-assign variables  (as array)
+    - Calling hooks with update value and RE-EXECUTE component function
+    - State required for data that may change in component (registered for each component instance)
+    - useState call will only initialize on first call, subsequent renderings do not re-initialize the function
+    
