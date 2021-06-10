@@ -13,4 +13,9 @@
     - Calling hooks with update value and RE-EXECUTE component function
     - State required for data that may change in component (registered for each component instance)
     - useState call will only initialize on first call, subsequent renderings do not re-initialize the function
-    
+- Use onChange to react to changes for any input; onChange will pass event by default
+- Multiple slices of state is valid, so multiple calls to useState
+    - pass in object to useState for every item BUT need to maintain older pieces of state b/c other data will be clobbered by react
+    - can spread existing state into useState to maintain values 
+- When you update state and depend on previous state PASS FUNCTION to hook, and first argument will be prev state snapshot
+- React schedules state updates, function way guarantees previous state snapshot is accurate
