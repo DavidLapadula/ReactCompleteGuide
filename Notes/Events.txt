@@ -1,0 +1,41 @@
+- React to button clicks have access to native DOM events. Value needs to be something executed when event occurs
+- Only object reference to handler to prevent function being executed when line of code evaluated
+- How react parses code
+    - Component is just a function that returns jsx
+    - Using components is like a function call - when react evaluates the component
+    - Calls component as 'function', and then any fn's inside them until there are none left
+        - Translates to DOM instructions, which starts with root component at initial rendering
+        - After initial rendering, react DOES NOT repeat that, so need state
+            - State allows component to be RE-EVALUATED
+- Component fn doesnt re-execute when variable changes
+- useState will allow youu to define state variables - must be called at top level of component
+    - Returns value and function to re-assign variables  (as array)
+    - Calling hooks with update value and RE-EXECUTE component function
+    - State required for data that may change in component (registered for each component instance)
+    - useState call will only initialize on first call, subsequent renderings do not re-initialize the function
+- Use onChange to react to changes for any input; onChange will pass event by default
+- Multiple slices of state is valid, so multiple calls to useState
+    - pass in object to useState for every item BUT need to maintain older pieces of state b/c other data will be clobbered by react
+    - can spread existing state into useState to maintain values 
+- When you update state and depend on previous state PASS FUNCTION to hook, and first argument will be prev state snapshot
+- React schedules state updates, function way guarantees previous state snapshot is accurate
+- default browser behaviour for form submission is to send request to web server
+- two way binding
+    - inputs listen to changes and new value from js into the input
+    - listen to changes in input, but also feed state back into input. Changing one effects other
+    - can gather user input but also change it
+- Child to parent communication
+    - create own event prop that takes function as arg, so pass value from child to parent
+    - pass in function from parent, when child calls function pass args, and then this data can be used in the parent
+    - pointer to function passed through prop from parent
+lifting the state up
+    - use component that has the closes link when two separate components need to communicate
+    - move state from child to parent using function reference passed from parent to child and then called in child
+    - then either use data in parent, or pass from parent to another child
+controlled vs uncontrolled
+    - controlled
+        - 2 way binding means it is controlled
+        - values as well as changes to the value are handled in the parent
+- manage state = stateful, smart        
+- useState() call will receieve an optional first argument to initialize the base state
+
