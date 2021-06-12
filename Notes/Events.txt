@@ -28,3 +28,14 @@
     - create own event prop that takes function as arg, so pass value from child to parent
     - pass in function from parent, when child calls function pass args, and then this data can be used in the parent
     - pointer to function passed through prop from parent
+lifting the state up
+    - use component that has the closes link when two separate components need to communicate
+    - move state from child to parent using function reference passed from parent to child and then called in child
+    - then either use data in parent, or pass from parent to another child
+controlled vs uncontrolled
+    - controlled
+        - 2 way binding means it is controlled
+        - values as well as changes to the value are handled in the parent
+- manage state = stateful, smart        
+- useState() call will receieve an optional first argument to initialize the base state
+
