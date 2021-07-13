@@ -1,0 +1,15 @@
+- render a list using map()
+- new state with useState, can use spread operator, but USE FUNCTION form, guarantees latest state snapshot
+- key warning
+    - key used to render lists efficiently. Tells react where a new item should be added
+    - without key, react will re-render ALL elements, just views change updates array and then updates ALL items
+        - could have bugs b/c if items stateful than state changes can be overwritten on re-render
+    - map does return an index, but bad because index same for item and not attached to the id
+    - Can render conditional content with curly braces. And can put ternary within the code
+        - Use && operator where second part return if first part is true
+        - Can set component level variable which stores some jsx or message depending on what you want to show as long as it is renderable
+    
+- Dynamic styles
+    - use style prop on component and can insert variable
+    - unlike className, will accept an object. Camel case css names with dash so key is valid
+- Adding + infront of string number will enforce conversion to a number
