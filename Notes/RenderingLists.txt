@@ -9,3 +9,7 @@
         - Use && operator where second part return if first part is true
         - Can set component level variable which stores some jsx or message depending on what you want to show as long as it is renderable
     
+- Dynamic styles
+    - use style prop on component and can insert variable
+    - unlike className, will accept an object. Camel case css names with dash so key is valid
+- Adding + infront of string number will enforce conversion to a number
