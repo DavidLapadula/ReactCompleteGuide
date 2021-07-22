@@ -1,0 +1,10 @@
+- can set dynamic inline styles with ternary inside styles object BUT inline styles have highest priority
+- use template literal to inject classname dynamically - so can keep classes all in classes
+    - more react way by defining end state and let react handle the rest
+- styled-components
+    - styles only affect that component
+    - styled is object with methods for all html elements that are tagged with backticks
+    - whatever is passed into backtick WITH STYLES used in component and method returns component
+        - applying styles to only that component
+    -  element handled in s-c library also forwards all props from original button       
+    - wraps styles into unique class names so cannot spill over
