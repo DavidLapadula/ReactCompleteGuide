@@ -1,0 +1,6 @@
+- sources give you source code that is being executed
+- add BP in source code in the dev tools, execution will stop when the code gets to that line
+    - can step in subsequent function calls 1 at a time to see what is being called
+- react dev tools
+    - put component tree in the dev tools - and shows component for each one, hooks, and even those that it is rendered by
+    - change state through the hooks that are rendered
