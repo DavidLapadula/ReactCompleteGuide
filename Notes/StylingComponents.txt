@@ -1,0 +1,20 @@
+- can set dynamic inline styles with ternary inside styles object BUT inline styles have highest priority
+- use template literal to inject classname dynamically - so can keep classes all in classes
+    - more react way by defining end state and let react handle the rest
+- styled-components
+    - styles only affect that component
+    - styled is object with methods for all html elements that are tagged with backticks
+    - whatever is passed into backtick WITH STYLES used in component and method returns component
+        - applying styles to only that component
+    -  element handled in s-c library also forwards all props from original button       
+    - wraps styles into unique class names so cannot spill over
+- dynamic props
+    - styled components forward props passed to unerlying component; so just pass name of class to className instead
+    - can use inside styled component using braces with props arrow function inside of it 
+- can just add media query inside styled component like usual
+- CSS Modules
+    - requires transformation before code is rendered in the browser
+    - file needs to be named .module.
+    - styles imported will be properites matching the component that are then passed into component className
+    - changes class names to be unique from class name so scoping is not an issue
+    - can put template literal in className to add dynamic class based on condition 
