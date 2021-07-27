@@ -1,0 +1,5 @@
+- if own component, even styles need to be handled to work properly
+- incoming classes must be handled in props and then passed into custom component
+- all components just extending built in html
+- 2 way binding of putting state value as 'value' is what allows it to change
+- prefix string with '+' will force type coercion
