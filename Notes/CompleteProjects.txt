@@ -1,0 +1,14 @@
+- if own component, even styles need to be handled to work properly
+- incoming classes must be handled in props and then passed into custom component
+- all components just extending built in html
+- 2 way binding of putting state value as 'value' is what allows it to change
+- prefix string with '+' will force type coercion
+- Lifting the state up
+    - want to manage state at highest level component
+    - use fn form when setting state requires previous state
+- Adding a modal
+    - general overlay over the entire app
+    - add backdrop class that covers whole page with high z index
+    - use state snapshot (with use state where function updates the object also returned)
+    - every native jsx with come with onclick, so just pass method to handler to un-render the backdrop
+
