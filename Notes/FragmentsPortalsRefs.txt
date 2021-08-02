@@ -1,0 +1,30 @@
+- JSX limits
+    - cannot have adjacent root level components 
+    - only 1 root jsx element b/c cant return 2 things in JS & JSX transforms into .creatElement
+    - solve by wrapping component, like div or native array w/ comma between element BUT need unique key for each element
+    - wrapping components can turn into <div> soup so many unecessary divs without semantic/structural meaning
+        - cant break styles and makes browser slower
+- Req is NOT that 1 root element must be rendered, only that 1 must be returned so wrapper does this without useless render
+    - So wrapper that just returns children DOES NOT render anything
+- Fragments 
+    - Can use React.Fragment as wrapper come from React
+- Portals
+    - Semantically bad to have overlay (modal, sidebar) that is nested because overlays the entire page
+        - Similar to styling a div like a button
+    - Need place to port component, and then tell component to port to that place 
+    - React doesnt care env where you run it, whether it has a dom. React-dom allows it to run in dom
+    - react-dom has .createPortal method that takes 2 args: item to render, and pointer to id at root where it should render 
+        - Similar to how item is rendered in the root components using ReactDom.render
+    - Wherever you render someting, can portal HTML content to somewhere else in DOM
+- Ref's
+    - Can access other DOM elements
+    - useRef() will return value that you want to work with in HTML
+    - Can connect any HTML element to ref
+    - React sets value returned from useRef to the DOM element where it is referenced
+    - Ref prop will always have 'current' prop equal to the real DOM node
+        - Only want to read value, then refs are very powerful
+        - To change value - refs have less code, but edge case of clearing
+- Controlled vs Uncontrolled
+    - Input components haver interal native state - q is whether controlled by react
+    - Use ref then internal state not controlled by react. Data NOT fed into value
+    - Controlled where update state with every stroke, and then value fed back use 'value'
