@@ -1,0 +1,14 @@
+- Effects
+    - React's job is to render to UI and react to input. Eval and render jsx, manage state/props, etc.
+    - Side effects are anything else beside this core features: http, localStorage, timers
+        - Not related directly to rendering something on the screen. So OUTSIDE component function as it is re-rendered when sth changes
+    - useEffect() hook. Arg 1 is function that runs IF dependencies of second arg change NOT when re-rendered
+    - localStorage type of effect
+        - Large disadvantage to setting state on page load - state setting will cause re-render -> cause page load -> set state = infinite loop
+    - useEffect() run AFTER render will prevent this loop with dependencies, since ONLY runs when dep change, so no re-render
+    - dependencies are things you are looking for that will change, including function pointers
+        - Only runs if dependency changed in last re-render cycle
+        - setState variables provided by useState guaranteed to never change
+    - Use on first time render to prevent loop AND after props/state change to trigger something
+    - Updating data (even though using state) STILL side effect. Any time need response to non-core react feature
+    - ONLY THINGS inside/internal to component that change on re/render
