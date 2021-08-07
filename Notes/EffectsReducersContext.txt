@@ -12,3 +12,27 @@
     - Use on first time render to prevent loop AND after props/state change to trigger something
     - Updating data (even though using state) STILL side effect. Any time need response to non-core react feature
     - ONLY THINGS inside/internal to component that change on re/render
+    - Debounce input (only when stops)
+        - useEffect() you can return fn that acts as cleanup. runs BEFORE state fn, but not before the first time and when removed
+        - before every execution and DOM unmount
+        - timeout will cause stall, so clear it on cleanup its always reset. only runs when you stop
+- Reducers and useReducer()
+    - better state management (when state updates depend on other state). i.e related state
+    - set state based on its previous value AND other state could lead to bug
+        - even if use fn form, only getting latest state for THAT value, not any others
+        - BUT w/ useEffect() run whenever dependencies change (state values) so guaranteed the latest
+    - react schedules state updates, could get dated value of state b/c not processed in time
+    - useReducer()
+        - use for more complex state updating when guaranteed to work with latest state snapshot
+        - return state snapshot and fn to dispatch an action. Dispatched to first arg
+            - reducerFn: triggered when action dispatched: receives prevState and returns new state 
+                - does need to be in function because does not need access to fn info, receives as args
+            - initial state
+            - initial fn
+        - function to dispatch TRIGGERS dispatch function 
+        - prevState you get as first argument in reducer guarantees correct prevState
+        - w/ useEffect, make sure ONLY runs when required to change. Do not pass object b/c then changes when any property changes
+- Context
+    - 
+
+    
