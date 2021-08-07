@@ -33,6 +33,15 @@
         - prevState you get as first argument in reducer guarantees correct prevState
         - w/ useEffect, make sure ONLY runs when required to change. Do not pass object b/c then changes when any property changes
 - Context
-    - 
-
+    - Component wide, behind the scenes storage
+    - need to PROVIDE and CONSUME it
+        - When call it, need to pass value object - all consuming components can then use. Default value IN context only used when consumed w/o provider
+        - Provide: wrap components that need to listen to it. Use provider and app + descendents get access
+        - Consume:
+            - Can wrap everything in consumer, return function with anon fn that gives you value and return jsx, where you can use value
+                - this way requires value prop on provider, which is passed to all listening components
+            - useContext(): 
+                - just import function, import context reducer and then pass to useContext
+                - can pas down values and function pointers
+    - data usually passed to components through props. Use context when passing through multiple or for something very specfic
     
