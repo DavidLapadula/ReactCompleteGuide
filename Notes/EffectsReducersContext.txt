@@ -42,6 +42,20 @@
                 - this way requires value prop on provider, which is passed to all listening components
             - useContext(): 
                 - just import function, import context reducer and then pass to useContext
-                - can pas down values and function pointers
+                - can pass down values and function pointers
     - data usually passed to components through props. Use context when passing through multiple or for something very specfic
-    
+    - Can export context provider as a named export and component that manages top level things with own state and props (like isLoggedIn)
+    - NOT high freq changes and NOT when need configurable props
+- Hooks rules
+    - Only in custom hooks or react functions
+    - Only call hooks at top level
+    - Add everything you use in useEffect as a dependency
+- Forward Refs
+    - expose fn's to parent component to use component in parent through ref only
+    - useEffect can be called (empty arr so only after 1st re-render) and then use a ref to focus an input
+    - focus() can be used on ref as is avaiilable on DOM object
+    - CANNOT call functions from outside with ref in own fn component
+        - useImperativeHandlle (not by state or props, directly in component)
+            -  1st arg: fn component receives props AND ref, and ref passed into useImperativeHandlle
+            -  2nd arg: fn that returns object with values you need (like a function for onBlur). Name of value is externally available name
+        - React.ForwardRef turns into component that is bound to a ref
