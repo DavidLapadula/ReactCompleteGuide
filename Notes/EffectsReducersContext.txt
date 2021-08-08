@@ -1,0 +1,61 @@
+- Effects
+    - React's job is to render to UI and react to input. Eval and render jsx, manage state/props, etc.
+    - Side effects are anything else beside this core features: http, localStorage, timers
+        - Not related directly to rendering something on the screen. So OUTSIDE component function as it is re-rendered when sth changes
+    - useEffect() hook. Arg 1 is function that runs IF dependencies of second arg change NOT when re-rendered
+    - localStorage type of effect
+        - Large disadvantage to setting state on page load - state setting will cause re-render -> cause page load -> set state = infinite loop
+    - useEffect() run AFTER render will prevent this loop with dependencies, since ONLY runs when dep change, so no re-render
+    - dependencies are things you are looking for that will change, including function pointers
+        - Only runs if dependency changed in last re-render cycle
+        - setState variables provided by useState guaranteed to never change
+    - Use on first time render to prevent loop AND after props/state change to trigger something
+    - Updating data (even though using state) STILL side effect. Any time need response to non-core react feature
+    - ONLY THINGS inside/internal to component that change on re/render
+    - Debounce input (only when stops)
+        - useEffect() you can return fn that acts as cleanup. runs BEFORE state fn, but not before the first time and when removed
+        - before every execution and DOM unmount
+        - timeout will cause stall, so clear it on cleanup its always reset. only runs when you stop
+- Reducers and useReducer()
+    - better state management (when state updates depend on other state). i.e related state
+    - set state based on its previous value AND other state could lead to bug
+        - even if use fn form, only getting latest state for THAT value, not any others
+        - BUT w/ useEffect() run whenever dependencies change (state values) so guaranteed the latest
+    - react schedules state updates, could get dated value of state b/c not processed in time
+    - useReducer()
+        - use for more complex state updating when guaranteed to work with latest state snapshot
+        - return state snapshot and fn to dispatch an action. Dispatched to first arg
+            - reducerFn: triggered when action dispatched: receives prevState and returns new state 
+                - does need to be in function because does not need access to fn info, receives as args
+            - initial state
+            - initial fn
+        - function to dispatch TRIGGERS dispatch function 
+        - prevState you get as first argument in reducer guarantees correct prevState
+        - w/ useEffect, make sure ONLY runs when required to change. Do not pass object b/c then changes when any property changes
+- Context
+    - Component wide, behind the scenes storage
+    - need to PROVIDE and CONSUME it
+        - When call it, need to pass value object - all consuming components can then use. Default value IN context only used when consumed w/o provider
+        - Provide: wrap components that need to listen to it. Use provider and app + descendents get access
+        - Consume:
+            - Can wrap everything in consumer, return function with anon fn that gives you value and return jsx, where you can use value
+                - this way requires value prop on provider, which is passed to all listening components
+            - useContext(): 
+                - just import function, import context reducer and then pass to useContext
+                - can pass down values and function pointers
+    - data usually passed to components through props. Use context when passing through multiple or for something very specfic
+    - Can export context provider as a named export and component that manages top level things with own state and props (like isLoggedIn)
+    - NOT high freq changes and NOT when need configurable props
+- Hooks rules
+    - Only in custom hooks or react functions
+    - Only call hooks at top level
+    - Add everything you use in useEffect as a dependency
+- Forward Refs
+    - expose fn's to parent component to use component in parent through ref only
+    - useEffect can be called (empty arr so only after 1st re-render) and then use a ref to focus an input
+    - focus() can be used on ref as is avaiilable on DOM object
+    - CANNOT call functions from outside with ref in own fn component
+        - useImperativeHandlle (not by state or props, directly in component)
+            -  1st arg: fn component receives props AND ref, and ref passed into useImperativeHandlle
+            -  2nd arg: fn that returns object with values you need (like a function for onBlur). Name of value is externally available name
+        - React.ForwardRef turns into component that is bound to a ref
