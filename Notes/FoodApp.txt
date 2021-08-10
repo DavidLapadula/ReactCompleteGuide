@@ -1,0 +1,1 @@
+- can import images. creates dynamic url behind the scenes supported by CRA
