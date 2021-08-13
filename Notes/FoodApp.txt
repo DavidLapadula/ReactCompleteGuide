@@ -1,1 +1,3 @@
 - can import images. creates dynamic url behind the scenes supported by CRA
+- spread props onto own component and will use k/v as props
+    - {type: input} --> type="input"
