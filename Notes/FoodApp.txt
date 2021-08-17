@@ -1,0 +1,10 @@
+- can import images. creates dynamic url behind the scenes supported by CRA
+- spread props onto own component and will use k/v as props
+    - {type: input} --> type="input"
+- drilling props can make comp more reusable because can be called from wherever vs using context
+- provider exports data and provides data to the comps that require it
+    - Export wrapping function with provider so can just wrap child and will have access
+- comp using context will be re-evaluated whenever ctx changed
+- update state immutably or else reference values can change and values in memory can change without react knowing about it
+- forward ref forwards the ref which can then be used by consuming class
+- bind preconfigures argument for future call with some additional aarguments
