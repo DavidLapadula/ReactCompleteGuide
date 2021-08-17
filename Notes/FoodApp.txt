@@ -6,3 +6,5 @@
     - Export wrapping function with provider so can just wrap child and will have access
 - comp using context will be re-evaluated whenever ctx changed
 - update state immutably or else reference values can change and values in memory can change without react knowing about it
+- forward ref forwards the ref which can then be used by consuming class
+- bind preconfigures argument for future call with some additional aarguments
