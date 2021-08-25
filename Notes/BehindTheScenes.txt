@@ -1,0 +1,11 @@
+- ReactDom is what interacts with browser - React just handles components + state
+- Props/State/Context changes, react tells React-DOM to change things
+- Virtual DOM
+    - React compares component tree now to what it should look like. ReactDom receievs differences
+    - ReactDOM only changes the part thats different not the whole DOM
+- Re-evaluating !== Re-rendering. Changes in components vs differences in evaluations
+- Mainly reacting to state changes. State change = re-evaluated (whichever components manages it)
+    - Child components in parent component function return will also re-render when parent does
+    - Could be ALOT with a big tree: maybe inefficient if children do not NEED to be re-rendered
+- React.Memo
+    - 
