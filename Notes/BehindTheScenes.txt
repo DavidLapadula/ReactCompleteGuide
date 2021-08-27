@@ -8,4 +8,15 @@
     - Child components in parent component function return will also re-render when parent does
     - Could be ALOT with a big tree: maybe inefficient if children do not NEED to be re-rendered
 - React.Memo
-    - 
+    - Only re-render if props change, wrap in memp, for functional compares
+    - Only re-execute if prop values change
+        - Performance cost of comparing props (memory, comparison etc)
+    - Best for large component tree, cut off branch of components to save cost
+    - When App fn executed, values are re-created, so memo wil read this as changed, with exception of primitive types
+        -  Fn is reference type so if re-created NOT equal, primitves are
+- useCallback
+    - React.memo for objects
+    - Save function across execution, so same memory ref, so will not cause re-render
+    - Fn is closure, js locks in values inside function when created
+    - SO if useCallback stores exact copy, values inside will be whatever they were on first render
+    - Need to pass in values used in fn to dependencies so can trigger change/ recreate fn like when values used outside fn change
