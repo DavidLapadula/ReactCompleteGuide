@@ -1,0 +1,41 @@
+- ReactDom is what interacts with browser - React just handles components + state
+- Props/State/Context changes, react tells React-DOM to change things
+- Objects and fn's references values, occupy diff spaces in mem. Even is value is identical, not same
+- Virtual DOM
+    - React compares component tree now to what it should look like. ReactDom receievs differences
+    - ReactDOM only changes the part thats different not the whole DOM
+- Re-evaluating !== Re-rendering. Changes in components vs differences in evaluations
+- Mainly reacting to state changes. State change = re-evaluated (whichever components manages it)
+    - Child components in parent component function return will also re-render when parent does
+    - Could be ALOT with a big tree: maybe inefficient if children do not NEED to be re-rendered
+- React.Memo
+    - Only re-render if props change, wrap in memp, for functional compares
+    - Only re-execute if prop values change
+        - Performance cost of comparing props (memory, comparison etc)
+    - Best for large component tree, cut off branch of components to save cost
+    - When App fn executed, values are re-created, so memo wil read this as changed, with exception of primitive types
+        -  Fn is reference type so if re-created NOT equal, primitves are
+    - useMemo() optimize
+        - Memoize value to store some value, also dependencies so it knows to change value (re-run) when one of the values it is using changes
+        - Can use it on static data that is performance intensive to re-calculate
+- useCallback
+    - React.memo for objects
+    - Save function across execution, so same memory ref, so will not cause re-render
+    - Fn is closure, js locks in values inside function when created
+    - SO if useCallback stores exact copy, values inside will be whatever they were on first render
+    - Need to pass in values used in fn to dependencies so can trigger change/ recreate fn like when values used outside fn change
+    - Especially useful if fn passed to component and that component memoized, so will prevent re-render
+- State re-evaluation just mean fn fires again. IF changes, hand changes handed to ReactDOM to apply ONLY those
+    - Re-eval also re-executes children
+- State and components
+    - useState() is like variable for that component. Manages it so value default value only used first time, so stores valu for re-evaluations
+    - Component attached to DOM, only initialized after first time
+    - Scheduling: call state update will cause it to be scheduled 
+        - Seems instant, but postponed if higher priority event occurs
+        - GUARANTEES order of state changes
+        - Why we use fn form when updating state from previous state (maintain order)
+            - Multiple state changes from component re-evaluation. Need to get last scheduled one
+            - useEffect() also guarantees dependencies have latest state
+        - Because of schedule, next state gotten when re-render, not in next line
+        - State updates batched when called in synchronous block
+
