@@ -1,0 +1,12 @@
+- pre 16.8 no hooks, so need class based to handle state and effects. 
+- class based cannot be used in a hook
+- render() when comp used in jsx to show what is on screen (like return)
+- extend component class - allows you to use this.props (as property in class)
+- need to initialize state and then update it. State needs to be an object and called 'state'
+- use setState inherited from parent class, and it will merge not OVERRIDE state
+    - supports function update method
+- when method called on event, 'this' inside class does not refer to class, so need to bind 'this' to method
+- lifecycle
+    - didMount(): when component evaulated and rendered, like useEffect() with no dep array
+    - didUpdate(): something changed, evaluated and re-rendered, like useEffect() WITH dep array, so re-render
+    - willUnmount(): right before removed from DOM, like clean up of useEffect()
