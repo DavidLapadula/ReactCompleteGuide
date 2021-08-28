@@ -8,5 +8,15 @@
 - when method called on event, 'this' inside class does not refer to class, so need to bind 'this' to method
 - lifecycle
     - didMount(): when component evaulated and rendered, like useEffect() with no dep array
+        - only runs after the first time
     - didUpdate(): something changed, evaluated and re-rendered, like useEffect() WITH dep array, so re-render
+        - received prev state and prev props as argument so can prevent infinite render loop
+        - useEffect handles this with with dependencies, so its better
     - willUnmount(): right before removed from DOM, like clean up of useEffect()
+- Using context
+    - could add consumer and wrap class based components
+    - CANNOT call multiple contexts, can only connect to one
+    - make static keyword (ONCE) and point it to imported context
+- Error boundaries
+    - If error is in child component, cant catch in parent, because returning JSX and cant use try/catch
+    -
