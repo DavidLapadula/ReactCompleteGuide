@@ -1,0 +1,16 @@
+- JS never talks to database
+- Anything in browser can be read, so cannot put queries in there, or creds
+- FE talks to BE (which cant accessed) and then that talks to DB
+- REST / GQL is just different ways of exposing data
+- GET req's
+    - fetch() api to get/send
+    - response object has built in json() to convert
+    - async/await
+        - async in front of function and then store in await block and remove .then()
+- Errors
+    - .catch() or try/catch
+    - fetch DOESNT throw error for error status, axios does
+- Integrate useEffect()
+    - code for component render, but NOT re-render
+    - should point at fn's you are using because they could change
+    - will lock fn in so wont change and can be used as dep for useEffect
