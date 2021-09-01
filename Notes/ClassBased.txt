@@ -19,4 +19,5 @@
     - make static keyword (ONCE) and point it to imported context
 - Error boundaries
     - If error is in child component, cant catch in parent, because returning JSX and cant use try/catch
-    -
+    - didCatch(), receives error as arg, it will make class based component the error boundary, when child throws error
+    - Wrap around components that might throw error you want to handle
