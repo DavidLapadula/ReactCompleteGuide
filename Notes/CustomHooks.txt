@@ -1,0 +1,8 @@
+- Regular function that outsources stateful functions, can use other hooks and state
+    - Prevent duplication but with state and hooks
+- Prevent duplication with your own hook
+- Function must start with 'use' - tells react is hook and respect hook rules
+- State in hook, tied to state where hook called. 
+- Can return whatever you want
+- Args passed in are dependencies, so need to pass into useEffect if in custom hook
+- If you call custom
