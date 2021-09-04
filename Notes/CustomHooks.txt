@@ -5,4 +5,6 @@
 - State in hook, tied to state where hook called. 
 - Can return whatever you want
 - Args passed in are dependencies, so need to pass into useEffect if in custom hook
-- If you call custom
+- Need to useCallback() for every dependency that might change, and if dependency itself changes, need to wrap that as well
+- To prevent wrapping everything in useCallback, pass data to fn's called in hook, so they are not dependencies of it
+- .bind allows you to pre-configure function, first arg is 'this', and then can set own arguments, normal arguments passed in will be appended after
