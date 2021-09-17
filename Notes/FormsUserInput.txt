@@ -1,0 +1,12 @@
+- Many point of validation: submission, lose focus, keystroke. Depends when you want to provide feedback
+- event.preventDefault because default behaviour is to send a http request. which would reload the page
+- Could use event on input or could useRef() which will always have current as property of object
+    - Ref if only need once, use state if need value from keystroke or need to bind to value of html
+    - Only React should manipulate the DOM, not you
+- Form or fields should not start as valid
+- Lose focus is validate on blur, or onBlur which fires when input loses focus
+- Can derive validity from state, does not need own state
+    - New value will change inference, so safe to use constant
+- Cust hook to manage state
+    - needs to be generic and not limited to one input
+    - define logic outside hook, but always execute it inside the hook
