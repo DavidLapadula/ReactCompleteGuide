@@ -10,3 +10,5 @@
 - Cust hook to manage state
     - needs to be generic and not limited to one input
     - define logic outside hook, but always execute it inside the hook
+- Build your own form: https://academind.com/tutorials/reactjs-a-custom-useform-hook
+- useReducer when have many state values that are related together
