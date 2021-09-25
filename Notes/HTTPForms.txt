@@ -1,4 +1,5 @@
 - FN pass to use effect SHOULD NOT return a promise, can return a cleanup and should run sync
     - Define nested async fn inside instead 
 - No dep array when fetching from a server because only want to happen when page loads
-- Cannot try/catch in useEffect because would then need to be asycn to catch promise, so use .catch instead
+- Cannot try/catch in useEffect because would then need to be async to catch promise, so use .catch instead
+- useRef allows you to get value from field
