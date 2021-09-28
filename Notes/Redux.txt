@@ -1,0 +1,17 @@
+- App wide state
+- Context disadvantages
+    - State management can be complex - need ALOT of context providers or one very big one
+    - Not as good for high frequency change
+- Have one central data store and use it in components
+    - Components can subscribe to store to get data
+    - Components do not directly manipulate data; use reducer instead
+    - Components dispath action - describes operation to perform  - forward to reducer which then replaces state - subscribed components are then notified
+-  Reducer receives old state and action and produces new state
+    - Should be pure function: same input produces same output
+- createStore will run reducer first time b/c takes it as argument
+    - dispatch action, called with a unique action, action will be on type in reducer and can react accordingly
+- Only 1 store so only need to provide it once
+    - Provider from react redux and wrap in highest level component
+    - Now any child of component where store passed in can subscribe, dispatch actions
+    - useSelector (react-redux) can let you get a piece of the store. Auto manages subscription for that component - change in data will cause re-render
+    - useDispatch - returns function we can use to dispatch to store
