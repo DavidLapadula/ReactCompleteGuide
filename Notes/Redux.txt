@@ -1,0 +1,39 @@
+- App wide state
+- Context disadvantages
+    - State management can be complex - need ALOT of context providers or one very big one
+    - Not as good for high frequency change
+- Have one central data store and use it in components
+    - Components can subscribe to store to get data
+    - Components do not directly manipulate data; use reducer instead
+    - Components dispath action - describes operation to perform  - forward to reducer which then replaces state - subscribed components are then notified
+-  Reducer receives old state and action and produces new state
+    - Should be pure function: same input produces same output
+- createStore will run reducer first time b/c takes it as argument
+    - dispatch action, called with a unique action, action will be on type in reducer and can react accordingly
+- Only 1 store so only need to provide it once
+    - Provider from react redux and wrap in highest level component
+    - Now any child of component where store passed in can subscribe, dispatch actions
+    - useSelector (react-redux) can let you get a piece of the store. Auto manages subscription for that component - change in data will cause re-render
+    - useDispatch - returns function we can use to dispatch to store
+- Class based components
+    - use connect instead of hooks. call connect as HOC, returns a fn that you pass class based component into
+        - connect takes 2 args
+            - mapStateToProps: receives state, keys are props in connected component and value is from the state
+            - mapDispatchToProps: store dispatch as props so they can be called in the component
+                - redux state and dispatch abilities then available inside class components
+        - need to bind 'this' when using in class fn's so it refers to the component context
+- Action needs to carry data, called payload and extra property added to action object
+- When reducer returns, it will not merge initial state only overwrite state based on return so need to return new snapshot
+- NEVER mutate state - because they are reference types in js - unpredictable behaviour. Brand new object needed
+- Redux Toolkit
+    - createSlice - prepare slice of global state, diff slices if unrelated pieces
+        - need reducers map, which of are functions, and the receieve current state and action
+        - can manipulate the state because redux toolkit as it clones what you add.
+        - just pass it to createStore, or use configureStore and pass config object with reducer key or an object with map of reducers
+        - will automatically give you actions (as value on object) for your reducers that match method names
+- Global isAuth state
+    - you only ever have one store with 1 reducer
+    - if you pass object with keys to configure store, need to access key on reducer object when being used in component
+- could make own file for every slice of state
+    - export actions from individual file but reducers need to be brought into index.js and passed into the single call to configureStore
+    
