@@ -1,0 +1,11 @@
+- Side Effects / Async
+    - Reduxer needs to be pure; no side effects and synchronous
+- Actions from redux toolkit need to be executed and when executed they return action object that can be dispatched
+- Redux hooks like useSelector will receive state if provided to app at top level
+- Async code: inside component or action creator
+- Cannot mutate redux state outside of redux; because then will change it in memory without redux knowing
+- Fat components, reducers, or actions
+    - Synchronous code should go in the reducer, not component
+    - Async / side effects should go in action creator or component
+- COULD use useEffect to listen for changes on state slice and send request whenever it does. useSelector subscribes to redux so can catch changes in state
+- 
