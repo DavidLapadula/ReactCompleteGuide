@@ -8,4 +8,10 @@
     - Synchronous code should go in the reducer, not component
     - Async / side effects should go in action creator or component
 - COULD use useEffect to listen for changes on state slice and send request whenever it does. useSelector subscribes to redux so can catch changes in state
-- 
+- Thunk
+    - delays action until later
+    - action creator returns a function (can be async) which eventually returns the function
+    - Run aysnc code BEFORE dispatch
+    - Redux toolkit accepts action creators that return functions
+    - Function returned from fn passed to dispatch gives access to dispatch so can dispatch in executed fn again
+        - Allows you to perform side effects and then reach reducer
