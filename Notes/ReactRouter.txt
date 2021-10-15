@@ -14,3 +14,9 @@
 - Can define route anywhere. If in active element RRD will evaluate it
     - Load route in component for conditial content that is nested within that route (folder structure)
 - Can use 'exact' base route '/' and 'Redirect' route to send the user to another page if the land on the home route
+    - 'exact' will ensure the route does not get called when another shares the same prefix
+- Nested route still needs full route (does not inherit from current) but will only render on the page it is placed
+- Fallback page: match all urls with wildcard and output not found component
+- Programmatic Navigation
+    - useHistory hook
+        - history.push or .replace. history allows going back and replace does not
