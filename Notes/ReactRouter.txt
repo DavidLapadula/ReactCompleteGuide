@@ -20,3 +20,12 @@
 - Programmatic Navigation
     - useHistory hook
         - history.push or .replace. history allows going back and replace does not
+- Warning if tries to leave: use Prompt component from react router dom
+    - use focus handler of the form
+    - 'when' prompt to show when entering form and trying to leave page, and mssg prop
+- Query param with '?' are optional and do not change the route
+    - can use history to change route and add paramter
+        - pushing a page will re-render component
+    - useLocation gives access to loaded page info
+        - search property gives access to 'search' value which has parameters on it
+    - URLSearchParams from native js and can be used to extract query data
