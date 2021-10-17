@@ -1,0 +1,34 @@
+- Do not want multi-page app with multiple pages loaded - fetch multiple pages then lose state
+    - browser default is to do a request when a link is selected
+- Want one HTML request so do not need to go back to server
+- react router allows different components to be rendered based on the route but keeping the spa architecture
+- Top level BrowserRouter and then use Route by passing path prop to Route
+- Components loaded through router are usually stored in different folder from 'components'
+- Use 'Link' from router to prevent browser default of doing a new request
+- Dynamic Routes
+    - use colon to identify parameter. useParams hook from router
+- Url's supposed to look like folder structure
+    - By default, all routes, just starts with, will be rendered
+    - Can use switch, will render the first match
+        - Exact prop will tell the router that should only be rendered for exact path
+- Can define route anywhere. If in active element RRD will evaluate it
+    - Load route in component for conditial content that is nested within that route (folder structure)
+- Can use 'exact' base route '/' and 'Redirect' route to send the user to another page if the land on the home route
+    - 'exact' will ensure the route does not get called when another shares the same prefix
+- Nested route still needs full route (does not inherit from current) but will only render on the page it is placed
+- Fallback page: match all urls with wildcard and output not found component
+- Programmatic Navigation
+    - useHistory hook
+        - history.push or .replace. history allows going back and replace does not
+- Warning if tries to leave: use Prompt component from react router dom
+    - use focus handler of the form
+    - 'when' prompt to show when entering form and trying to leave page, and mssg prop
+- Query param with '?' are optional and do not change the route
+    - can use history to change route and add paramter
+        - pushing a page will re-render component
+    - useLocation gives access to loaded page info
+        - search property gives access to 'search' value which has parameters on it
+    - URLSearchParams from native js and can be used to extract query data
+- React route gives useRouteMatch and gives info about current route (params)
+    - Can extract data to make dynamic routes
+- history.push takes an object with pathname and search (for args)
