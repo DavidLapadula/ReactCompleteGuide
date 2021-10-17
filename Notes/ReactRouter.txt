@@ -29,3 +29,6 @@
     - useLocation gives access to loaded page info
         - search property gives access to 'search' value which has parameters on it
     - URLSearchParams from native js and can be used to extract query data
+- React route gives useRouteMatch and gives info about current route (params)
+    - Can extract data to make dynamic routes
+- history.push takes an object with pathname and search (for args)
