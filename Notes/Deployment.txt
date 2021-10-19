@@ -1,0 +1,14 @@
+- Test --> Optimize --> Build (minified and bundled) --> Upload to server
+- Lazy Loading
+    - User needs to wait until all code is downloaded. So want to make that as small as possible and only download code when needed
+    - Load some code only when needed
+    - React.lazy to import code and then only executed when needed
+        - Need fallback UI in case lazy loading takes longer than render
+        - React Suspense will take fallback, wrap components where lazy used
+- Buildng app for production: "npm build" to build - optimize and shrink
+    - Will create a build folder, which will have all code for prod
+- SPA is static: only HTML/CSS/BrowserJS
+    - Only need static hosting provider
+- Usually different HTML triggers different action from server
+    - With react, path needs to be ignored, so only serve react code.
+        = All URLs point to index.html
