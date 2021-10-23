@@ -6,3 +6,14 @@
     - Authentication tokens: server validates permmissions, and then creates and sends a token, but does not store it
         - Server just stores the key to decode the token (not known by client)
         - Server knows private key, so can validate the token was issued by it
+- Id token returned can only be verified by the server that created it
+- Auth state does not change frequently so can use context API
+    - Just return component that allows you to wrap provider of your context
+    - Pass in context value to provider which holds state values and methods defined in 'createContext'
+    - Wrap root component in provider BUT return of createContext must be used on component when calling useContext
+- Grab context in all components you need it and can render things based on items from context state
+- Just send token in body/parameter/header
+- Can use history to redirect, replace() method will prevent clicking back
+- In stateless system, do not need to logout by sending req to route, b/c server only needs to decode tokens passed in with key
+- Need navigation guards to protect pages when not logged in
+
