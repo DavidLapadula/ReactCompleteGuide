@@ -1,0 +1,8 @@
+- 2 steps: get access, and then access protected resource
+- Yes/No access question is easy to fake and not enough to get protected resources
+    - Server side sessions: serve stores unique identifier and sent to client. So both parties will know identifier 
+        - Decoupled Front and Back end (diff servers) or for an API, then hard to store identifer on server
+        - Server should be 'stateless'
+    - Authentication tokens: server validates permmissions, and then creates and sends a token, but does not store it
+        - Server just stores the key to decode the token (not known by client)
+        - Server knows private key, so can validate the token was issued by it
