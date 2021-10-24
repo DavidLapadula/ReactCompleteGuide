@@ -16,4 +16,16 @@
 - Can use history to redirect, replace() method will prevent clicking back
 - In stateless system, do not need to logout by sending req to route, b/c server only needs to decode tokens passed in with key
 - Need navigation guards to protect pages when not logged in
+- NavGuard
+    - Change routes based on if they are protected
+- Persisting auth
+    - Local storage survives reloads
+    - Just check when app loads, do not need useEffect b/c is synchronous
+- Auto log out with a timer
+    - Call setTimeout with remaining time and logout handler to automatically do it
+    - Need to clear timeout if timer is being used to track token duration
+    - Ensure to use useCallback to prevent functions from being re-created when they are being used as dependencies
+    - useEffect for auto-login
+        - IF token data when auto login, need to reset timer
+        - useEffect will run when token data changes to reset timer
 
