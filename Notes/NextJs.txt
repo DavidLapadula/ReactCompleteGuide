@@ -1,0 +1,26 @@
+- Full stack framework for React
+    - React needs more libraries for routing, auth
+    - FW is more strict in terms of rules and code structure
+        - More features and rules on how to use them
+    - Has core features that you would need to add to react 
+- SSR
+    - Render react components on the server 
+    - Prepare content of page on the server
+    - Page can contain data would otherwise need to load
+    - SEO: put content on page on the server, finished page would be served for crawlers
+- File Based Routing
+    - React just renders different component and does not send new req to server
+    - Need pages folder and files in there define routes - more intuitive
+- Full stack
+    - Can add backend code, can havve API, DB, auth, fetching data
+- Filename used as pathname, except index.js which is for '/'
+- HTML code sent by server, so it ends up on the page, not skeleton like regular react app
+- Sub folders are how you can hav nested routes
+    - Can also have folder name with sub index.js and will work the same
+- Pages with parameters: [param].js allows dynamic path
+- useRouter from next, get values of dynamic path segements (arguments)
+    - Will run twice  - right when page runs (null) and then with url value on router.query.newsId
+- Nevigation
+    - Using anchor tag will send a new request, so not SPA. Will not preserve state!
+    - use Link from next/link, will render an anchor, will stay inside SPA
+        - No browser default of loading a new page
