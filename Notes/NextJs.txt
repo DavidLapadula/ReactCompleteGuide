@@ -18,9 +18,18 @@
 - Sub folders are how you can hav nested routes
     - Can also have folder name with sub index.js and will work the same
 - Pages with parameters: [param].js allows dynamic path
+    - works with directories and a sub file called index.js
 - useRouter from next, get values of dynamic path segements (arguments)
     - Will run twice  - right when page runs (null) and then with url value on router.query.newsId
 - Nevigation
     - Using anchor tag will send a new request, so not SPA. Will not preserve state!
     - use Link from next/link, will render an anchor, will stay inside SPA
         - No browser default of loading a new page
+- _app.js
+    - root component, so can wrap layout around this root component to avoid touching every file
+    - Component: holds page content to be rendered
+    - pageProps are props that pages are getting
+- useRouter hook from next has method for navigating (push)
+- useEffect runs AFTER component function fires, so rest call getting data will occur after it renders
+    - SSR issue: prerendered html comes in the first render cycle ONLY, not the second one which has the data from useEffect
+    - 
