@@ -32,4 +32,35 @@
 - useRouter hook from next has method for navigating (push)
 - useEffect runs AFTER component function fires, so rest call getting data will occur after it renders
     - SSR issue: prerendered html comes in the first render cycle ONLY, not the second one which has the data from useEffect
-    - 
+- Fetching
+    - Returns pre-rendered page, but only react hydrated after first render cycle, so might be missing data
+    - getStaticProps faster if data does not always change, every use is from a cache
+    - getServerSideProps better if data changes frequently or need access to incoming request
+    - Static Generation
+        - Page pre-rendered by production build, so pre-build when needs to change
+        - With next, pages created during build process
+        - In page component files only getStaticProps
+            - reserved fn that prepares data, even if async next will wait, and then return props for fn
+            - Load data before component function executed so renderd with data, and access code that only runs on server
+            - getStaticProps never runs on the client side
+            - takes argument called 'context' and has params object with value on it
+    - SSR
+        - Static vs SSG means page pre-build with data (props) or without data
+        - Pre generated page could have outdated data
+        - Revalidate (item on object returned by props)
+            - incremental static validation
+            - takes a number, page regenerated on the server if requests are coming for that page
+                - data would never be older than revalidate frequency
+    - getServerSideProps
+        - pregenerate dynamically on the server, for every incoming request
+        - runs on the server after deployment, will never be exposed to client
+        - context argument passed into argument has the network request and result on it
+    - Using getStaticProps on dynamic page requires getStaticPaths
+        - pre-generated page with dynamic pages means needs to be generated with all possible dynamic params
+        - getSaticPaths exports configuration desribing which dynamic values that need to be pre-generate
+        - 'fallback' key will ensure unknown id will be generated dynamically if necessary
+- Build API in project
+    - special pages that accept CRUD requests and return JSON
+    - 'api' folder inside pages folder. Routes defined by /api/<file-name>
+    - code is never exposed to the client
+    - res.status to return value of call, and can attach a json value that gets added to the return
