@@ -64,3 +64,16 @@
     - 'api' folder inside pages folder. Routes defined by /api/<file-name>
     - code is never exposed to the client
     - res.status to return value of call, and can attach a json value that gets added to the return
+    - absolute path because different path on same server
+    - able to use fetch server side, but easier to send request in getStaticProps so all stays on server
+    - mongo allows passing a second argument telling the db which fields to return
+- When gets static props, can render 'paths' dynamically based on the data received, so next knoww which to pre-render
+- Metadata
+    - Description metadata is what shows up on google
+    - use 'Head' component from next to add the metadata
+        - Standard react features all availablle in this component
+- For list of paths
+    - set 'fallback' to true or blocking
+        - when true it first pulls down page, and then grabs data
+        - when blocking, it will wait until the data is there
+
