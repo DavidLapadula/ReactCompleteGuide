@@ -1,0 +1,79 @@
+- Full stack framework for React
+    - React needs more libraries for routing, auth
+    - FW is more strict in terms of rules and code structure
+        - More features and rules on how to use them
+    - Has core features that you would need to add to react 
+- SSR
+    - Render react components on the server 
+    - Prepare content of page on the server
+    - Page can contain data would otherwise need to load
+    - SEO: put content on page on the server, finished page would be served for crawlers
+- File Based Routing
+    - React just renders different component and does not send new req to server
+    - Need pages folder and files in there define routes - more intuitive
+- Full stack
+    - Can add backend code, can havve API, DB, auth, fetching data
+- Filename used as pathname, except index.js which is for '/'
+- HTML code sent by server, so it ends up on the page, not skeleton like regular react app
+- Sub folders are how you can hav nested routes
+    - Can also have folder name with sub index.js and will work the same
+- Pages with parameters: [param].js allows dynamic path
+    - works with directories and a sub file called index.js
+- useRouter from next, get values of dynamic path segements (arguments)
+    - Will run twice  - right when page runs (null) and then with url value on router.query.newsId
+- Nevigation
+    - Using anchor tag will send a new request, so not SPA. Will not preserve state!
+    - use Link from next/link, will render an anchor, will stay inside SPA
+        - No browser default of loading a new page
+- _app.js
+    - root component, so can wrap layout around this root component to avoid touching every file
+    - Component: holds page content to be rendered
+    - pageProps are props that pages are getting
+- useRouter hook from next has method for navigating (push)
+- useEffect runs AFTER component function fires, so rest call getting data will occur after it renders
+    - SSR issue: prerendered html comes in the first render cycle ONLY, not the second one which has the data from useEffect
+- Fetching
+    - Returns pre-rendered page, but only react hydrated after first render cycle, so might be missing data
+    - getStaticProps faster if data does not always change, every use is from a cache
+    - getServerSideProps better if data changes frequently or need access to incoming request
+    - Static Generation
+        - Page pre-rendered by production build, so pre-build when needs to change
+        - With next, pages created during build process
+        - In page component files only getStaticProps
+            - reserved fn that prepares data, even if async next will wait, and then return props for fn
+            - Load data before component function executed so renderd with data, and access code that only runs on server
+            - getStaticProps never runs on the client side
+            - takes argument called 'context' and has params object with value on it
+    - SSR
+        - Static vs SSG means page pre-build with data (props) or without data
+        - Pre generated page could have outdated data
+        - Revalidate (item on object returned by props)
+            - incremental static validation
+            - takes a number, page regenerated on the server if requests are coming for that page
+                - data would never be older than revalidate frequency
+    - getServerSideProps
+        - pregenerate dynamically on the server, for every incoming request
+        - runs on the server after deployment, will never be exposed to client
+        - context argument passed into argument has the network request and result on it
+    - Using getStaticProps on dynamic page requires getStaticPaths
+        - pre-generated page with dynamic pages means needs to be generated with all possible dynamic params
+        - getSaticPaths exports configuration desribing which dynamic values that need to be pre-generate
+        - 'fallback' key will ensure unknown id will be generated dynamically if necessary
+- Build API in project
+    - special pages that accept CRUD requests and return JSON
+    - 'api' folder inside pages folder. Routes defined by /api/<file-name>
+    - code is never exposed to the client
+    - res.status to return value of call, and can attach a json value that gets added to the return
+    - absolute path because different path on same server
+    - able to use fetch server side, but easier to send request in getStaticProps so all stays on server
+    - mongo allows passing a second argument telling the db which fields to return
+- When gets static props, can render 'paths' dynamically based on the data received, so next knoww which to pre-render
+- Metadata
+    - Description metadata is what shows up on google
+    - use 'Head' component from next to add the metadata
+        - Standard react features all availablle in this component
+- For list of paths
+    - set 'fallback' to true or blocking
+        - when true it first pulls down page, and then grabs data
+        - when blocking, it will wait until the data is there
+
