@@ -1,0 +1,24 @@
+- Transition property: define how transitions occur but setting which property, length and effect type
+- Transition works with transform to determine what should be transformed
+- Animation
+    - can define keyframes and add it to the 'animation' property of another css class
+    - gets added whenever the css class gets added to the DOM element
+    - limit because just using css means it will always be on the DOM, which is not great
+    - react also doesnt check for animations when removing from the dom
+- React Transition Group
+    - Wrap component you want to be effected by transition in Transition
+    - has in property to determine it should show and timeout for how long the transition b/w states is held
+         - also mounting props for if it should be removed from the dom
+    - It tracks the transition over time so you can update it
+    - Manages 4 states: Entering-Entered Exiting-Exited. We can then animate in between these states
+    - returns a function with the current state from the 4 options
+    - can then set styles based on the state you have
+    - Can pass the state from Transition down through props to child elements of those it wraps
+    - Timeout can take an object with enter/exit keys, which will determine different timings for transitions
+    - Callbacks available on Timeout to do things when events occur: onEnter/Entering/Entered and also for exit
+        - Executed when passing through different modes
+- CSS Transition Component
+    - classNames prop: which classes should be added to child component
+    - class you pass in, need to define class as trunk <class>-enter/enter-active/exit, and will get added based on transition state
+    - DO NOT need to manually set classes, just define classes in the code
+    - classnames also takes a object with keys enter/enterActive. Can avoid trunks
