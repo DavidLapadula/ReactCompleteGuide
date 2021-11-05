@@ -1,0 +1,11 @@
+- Context API
+    - add value to provider and any component wrapped in provider will have access to it, even when it changes
+    - can use useContext hook and pass in context to access values on it
+    - method defined inside context file and passed in as 'value' to exported component can be called with only useContext in another component
+    - good for low frequency updates
+        - doesnt know which components are using context, so rebuilds everything using
+        - low frequency changes like authentication
+- Custom state management
+    - if component uses custom hook, and the custom hook uses useState, when useState triggers re-render - component that uses it will also
+    - define global objects in custom hook then can share data and functionality across components
+    - cleanup from useEffect (what is returned) will can be used as a cleanup function
