@@ -22,3 +22,8 @@
     - class you pass in, need to define class as trunk <class>-enter/enter-active/exit, and will get added based on transition state
     - DO NOT need to manually set classes, just define classes in the code
     - classnames also takes a object with keys enter/enterActive. Can avoid trunks
+- Transition group (lists)
+    - used to render lists, but must be list of transition component
+    - will set 'in' property on nested CSSTranition property whenever an item changes
+        - This depends on classes you define with the trunk
+
