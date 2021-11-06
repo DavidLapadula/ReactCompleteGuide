@@ -9,3 +9,11 @@
     - if component uses custom hook, and the custom hook uses useState, when useState triggers re-render - component that uses it will also
     - define global objects in custom hook then can share data and functionality across components
     - cleanup from useEffect (what is returned) will can be used as a cleanup function
+- Custom hook store
+    - Define variables outside hook so they are shared by every component
+    - Dispatch: creates new state based on action identifier and updates global state
+        - call all listeners, which are just set state calls to trigger re-render
+    - Register 1 listener (setState call) when component is made and then unregister it when component destroyed using cleanup from useEffect
+    - Init Store, always merging existing store with new values
+        - Individual calls to configureStore just add to actions list and global state from actions map
+    - Can configure whether consumer of store should listen for changes to prevent re-render in components that are only meant to dispatch actions
