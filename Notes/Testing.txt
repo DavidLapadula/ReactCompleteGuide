@@ -1,0 +1,13 @@
+- Code that tests other code
+    - Unit: smallest unit of or building blocks
+        - Smallest scenario so know why they fail
+        - Test success and error scenario
+    - Integration: combination of multiple building blocks
+    - e2e the app in its entirety
+- Need to run test code and assert result
+- In react need to simulate component in the browser
+    - Jest runs tests and asserts success
+    - React testing library is for rendering component
+- App.test.js
+    - test func that takes name and functon to run test
+    - jest will watch files by default
