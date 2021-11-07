@@ -11,3 +11,29 @@
 - App.test.js
     - test func that takes name and functon to run test
     - jest will watch files by default
+- Three A's of testing 
+    - Arrange (setup conditions and data), Act (run logic to be tested), Assert (see if output matches result)
+    - screen from react testing library gives you access to virutal dom
+- Test suites
+    - organize by tests for 1 feature or component, created with describe
+    - put tests in describe() to group them
+- In the case of state changes, test scenarios when state changes
+- Testing library - user event
+    - allows you to trigger events in virtual screen
+    - can target any element in the dom, even by role like button
+    - so can use this library to trigger state changes and test things that occur when the state is changed
+    - some methods only grab element if exists in the dom (getByText vs getByQuery)
+- Connected components
+    - render() will render the component tree, even with nested components
+- Async tests
+    - special way of testing for elements if they depend on async code because elements not there initially
+        - find... queries return a promise and check for async code. React testing library will wait until promise returns 
+            - can set amount of time it should take
+        - test function pass into jest fn test() can be async to give access to await
+- Mocks
+    - Do not wanna sent req during tests. Could spam server, and could insert data into server b/c of post/put
+        - Test could also fail because server is down
+    - Do not send request, just send a mock. Just want to ensure code you wrote works
+    - Dummy fn that does not send a real req
+    - Change window.fetch to jest fn and this will allow you to mock the request without actually using fetch
+    - 
