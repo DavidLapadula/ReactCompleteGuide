@@ -1,0 +1,29 @@
+- Extends core js, add static typing
+- Can assign types to function arguments to know what it is expecting
+- TS extends js syntax with types, but does not run in browser, so it needs to be compiled in order to run in browser
+- Need tsconfig to tell it which files need to be compiled - will show error if syntax mistake
+- Basics; default type is any which means it will allow anything
+    - Primitive: number, string, boolean
+        - lower case or else pointing at JS object
+    - Complex: array, object
+        - can define object type and type of properties
+        - can add '[]' after object to say you want to array of them
+    - Function types
+        - set types for parameters
+        - type of function return is inferred
+        - return void if there is nothing
+- Type inference
+    - TS will infer type on the item without you stating them. Good when immediately initialized
+- Union types: Allow for more than one type
+- Type alias: create definition and then use it. Added with 'type' keyword
+- Generics
+    - Can be an issue if accept any as argument type but want to enforce return type. TS will infer any return type from parameter
+    - Put <> signs before function and define type that is only allowed inside of func
+    - Infers type from the arguments and sets that as the return
+        - will just ensure return type is same as argument, even if called with different types at different instances
+    - Can use angel brackets for setting values on array too like let numbers: Array<number> = ...
+- React + ts
+    - Can still use CRA and define TS as template
+    - tsx files are the ones needed because using jsx
+    - Compiler is not taking TS and compiling to JS THEN bundling it
+    - @types libraries that allow translation between JS libraries (node etc) and TS
