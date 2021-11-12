@@ -27,3 +27,19 @@
     - tsx files are the ones needed because using jsx
     - Compiler is not taking TS and compiling to JS THEN bundling it
     - @types libraries that allow translation between JS libraries (node etc) and TS
+    - Implicitly assuming variable is 'any' is extra error check is TS
+    - Give fn component type of React.FC (Generic type), this way you do not need to need to define type of props.children every time
+    - Can create Generic type and explicitly set the type that is supposed to be used for that instance of the generic
+        - React.FC merges type you define with base type, which includes children
+        - Always use object as generic type because props always an object
+    - Benefit because then component created will throw error if wrong props or props of wrong type will tell you
+    - Data model
+        - Define new class with types properties that describe your data
+        - Class acts as a constructor AND as a type
+    - React.FormEvent - special event like (MouseEvent) that react has to ensure TS knows what type of data
+    - All HTML elements have a type, so can use to set variables that connect to certain elements (like with useRef)
+    - ? means value may be null so set var as null, ! means potentially null will not be null so set var as value
+    - Can define a function type like (arg: argType) => return val
+    - State
+        - Initialized value in state, TS does not know what type it should be
+        - useState is generic type, so can use generic to define the data it is supposed to get
