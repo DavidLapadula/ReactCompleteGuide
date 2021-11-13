@@ -1,0 +1,56 @@
+- Extends core js, add static typing
+- Can assign types to function arguments to know what it is expecting
+- TS extends js syntax with types, but does not run in browser, so it needs to be compiled in order to run in browser
+- Need tsconfig to tell it which files need to be compiled - will show error if syntax mistake
+- Basics; default type is any which means it will allow anything
+    - Primitive: number, string, boolean
+        - lower case or else pointing at JS object
+    - Complex: array, object
+        - can define object type and type of properties
+        - can add '[]' after object to say you want to array of them
+    - Function types
+        - set types for parameters
+        - type of function return is inferred
+        - return void if there is nothing
+- Type inference
+    - TS will infer type on the item without you stating them. Good when immediately initialized
+- Union types: Allow for more than one type
+- Type alias: create definition and then use it. Added with 'type' keyword
+- Generics
+    - Can be an issue if accept any as argument type but want to enforce return type. TS will infer any return type from parameter
+    - Put <> signs before function and define type that is only allowed inside of func
+    - Infers type from the arguments and sets that as the return
+        - will just ensure return type is same as argument, even if called with different types at different instances
+    - Can use angel brackets for setting values on array too like let numbers: Array<number> = ...
+- React + ts
+    - Can still use CRA and define TS as template
+    - tsx files are the ones needed because using jsx
+    - Compiler is not taking TS and compiling to JS THEN bundling it
+    - @types libraries that allow translation between JS libraries (node etc) and TS
+    - Implicitly assuming variable is 'any' is extra error check is TS
+    - Give fn component type of React.FC (Generic type), this way you do not need to need to define type of props.children every time
+    - Can create Generic type and explicitly set the type that is supposed to be used for that instance of the generic
+        - React.FC merges type you define with base type, which includes children
+        - Always use object as generic type because props always an object
+    - Benefit because then component created will throw error if wrong props or props of wrong type will tell you
+    - Data model
+        - Define new class with types properties that describe your data
+        - Class acts as a constructor AND as a type
+    - React.FormEvent - special event like (MouseEvent) that react has to ensure TS knows what type of data
+    - All HTML elements have a type, so can use to set variables that connect to certain elements (like with useRef)
+    - ? means value may be null so set var as null, ! means potentially null will not be null so set var as value
+    - Can define a function type like (arg: argType) => return val
+    - State
+        - Initialized value in state, TS does not know what type it should be
+        - useState is generic type, so can use generic to define the data it is supposed to get
+    - TS and Context API
+        - createContext is a generic type so can define overall type of object
+        - import context NOT provider, when need to tap into context to get the values
+        - Provider component that is exported. useContext works but only if components that use it are wrapped with provider
+            - NEED BOTH
+- tsconfig.json
+    - configure compilation from TS to JS
+    - target is the version of JS that you are going to compile to
+    - need certain 'lib' to ensure reads files properly
+    - allowJs ensures that you can have plain JS files in the project
+    - strict set to 'true' sets type checks to as strict as possible
