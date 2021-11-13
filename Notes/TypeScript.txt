@@ -43,3 +43,14 @@
     - State
         - Initialized value in state, TS does not know what type it should be
         - useState is generic type, so can use generic to define the data it is supposed to get
+    - TS and Context API
+        - createContext is a generic type so can define overall type of object
+        - import context NOT provider, when need to tap into context to get the values
+        - Provider component that is exported. useContext works but only if components that use it are wrapped with provider
+            - NEED BOTH
+- tsconfig.json
+    - configure compilation from TS to JS
+    - target is the version of JS that you are going to compile to
+    - need certain 'lib' to ensure reads files properly
+    - allowJs ensures that you can have plain JS files in the project
+    - strict set to 'true' sets type checks to as strict as possible

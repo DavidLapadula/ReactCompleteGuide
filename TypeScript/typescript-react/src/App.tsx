@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       <NewTodo onAddTodo={addToDoHandler} />
-      <Todos items={todos} />
+      <Todos />
     </div>
   );
 }
