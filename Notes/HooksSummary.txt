@@ -1,0 +1,13 @@
+- Hooks limited to fn components
+- Allow state in fn components. Remove class based b/c they have more code overhead
+- React.memo - only re-render when props change 
+- Use const because variables dont change in render cycle
+- In class based, setState merges with existing but with useState it relaces it
+- Function update to chaneg state so get latest value
+- Closure locks in values to ensure value is save for usage. Could be issue if updating by keystroke
+- Hooks need to be at root level of project or loops/ifs
+- Fn form best used when need to add to state like adding to list
+- Fn you pass to useEffect after render and re-render cycle. Second arg are dependencies and will only run when they change
+    - Similar to componentDidMount
+    - Can destructure props and use as dependency to ensure useEffect runs when necessary
+    - 
