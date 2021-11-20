@@ -10,4 +10,35 @@
 - Fn you pass to useEffect after render and re-render cycle. Second arg are dependencies and will only run when they change
     - Similar to componentDidMount
     - Can destructure props and use as dependency to ensure useEffect runs when necessary
-    - 
+- useCallback
+    - wrap function with it and react will cache it so it doesnt get recreated with every new render
+    - useful to prevent re-render in children when passing function as prop and that prob is a dependency
+- useRef
+    - establish connection to ref
+    - fn's create closure over variable so refers to what it was when fn was created
+- Return function from useEffect, acts a cleanup before the next iteration of the function.
+- If there are no dependencies to useEffect, runs when component unmounted
+- Synchronous calls to setState are batched to ensure that re-renders do not occur unnecessarily
+- useReducer
+    - made outside from component to prevent re-render 
+    - first argument to useReducer return array is what is passed into the state as a call
+    - returns dispatch action to dispatch an action
+    - whenever reducer returns a new state, it will cause a re-render
+        - const [state, dispatch ] = useReducer(reducer, <initial state>)
+            - useReducer will return state and you can merge it to make values persist
+- Context
+    - createContext, initialized with a value and then exported
+    - Also export a provider where contexxt provider wraps children. Can use state in the provider
+    - Provider takes value with actual values initially defined in stub of createContext
+        - Wrap root element in this so entire app is able to listen to it
+    - use Context hook to use it in components and get access to values
+        - Context consumer gives access inside JSX tree, but outside that no other way except using a class component with contextType
+        - useContext allows you to hook into that outside of JSX tree 
+            - Components using context are rebuilt when it changes
+- React memo
+    - Store data you do not want to recreate on every re-render of the component
+        - React.memo for storing components
+        - useMemo: memoize function to only change when necessary based on dependencies, so like when items passed to component update
+    - Re-render might be less expensive than memo for small components because react needs to check if dependecies changed with memoized functions
+- Custom Hook
+    - Stateful logic shared between components, but each has own snapshot, so not sharing data
