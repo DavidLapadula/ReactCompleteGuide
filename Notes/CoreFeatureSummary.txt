@@ -13,3 +13,9 @@
 - Can build wrapping components with props.children
 - useEffect to make sure certain methods only run at certain times - can fix reload loop with this
     - dependencies are all external values function relies on
+- Context
+    - Provider makes available to any child components that want access
+    - Provider also updates the context
+    - Can manage states in the component to re-evalute the state - so any components listening will get that data
+    - useContext hook gives you access to the context object, which itself is changed by the code in the provider
+        - just ensure key in object passed to value of provider is the same as instantiated in the context created
