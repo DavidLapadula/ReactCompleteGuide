@@ -1,0 +1,21 @@
+- SPA: Server only sends one HTML page
+    - Never need to ask server for another page
+- Compoent needs to return something that can be rendered in the browser
+- Assigning class in JS uses classname, so need to us ethat for styles
+- Components start with capital to differentiate from HTML elements when they are called
+- useState will always return 2 arguments, value of variable and function to change it
+    - Whdn function called, react re-renders component it belongs to in order to update it
+- Event prop is passing function as prop
+- JS func is first class object - so can be passed around as valus
+- Switch components will tell react to only render one component
+- Anchor tag wil send req to server, which is redundant because already on that page
+- CSS modules for scoping css files to specific components
+- Can build wrapping components with props.children
+- useEffect to make sure certain methods only run at certain times - can fix reload loop with this
+    - dependencies are all external values function relies on
+- Context
+    - Provider makes available to any child components that want access
+    - Provider also updates the context
+    - Can manage states in the component to re-evalute the state - so any components listening will get that data
+    - useContext hook gives you access to the context object, which itself is changed by the code in the provider
+        - just ensure key in object passed to value of provider is the same as instantiated in the context created
