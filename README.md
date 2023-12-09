@@ -1,6 +1,6 @@
 # React Complete Guide
 
-Source code for course covering modern React features and design principles
+Source code for course covering modern React features and design principles. 
 
 ## Topics Included
 
